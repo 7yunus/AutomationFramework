@@ -1,0 +1,47 @@
+package org.example.sedin.configuration;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.sedin.utilities.Utils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.IOException;
+import java.time.Duration;
+
+public class DriverSetup {
+    public static WebDriver driver;
+    public static Logger logger = LogManager.getLogger(DriverSetup.class);
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    public void initialisation() throws IOException {
+        String browser = Utils.getPropertiesFileValue("browser"); //get browser value from config.prop
+        switch (browser) {
+            case "chrome":
+			/*
+			We don’t need to manage any executable driver file or use Bonigarcia Webdrivermanager as in latest selenium
+			v4.6.0, Beta 1 of Selenium Manager will configure the browser drivers for Chrome, Firefox, and Edge if
+			they are not present on the path
+			*/
+                driver = new ChromeDriver();
+                logger.info(browser + "browser is launched!");
+                break;
+            case "firefox":
+                driver = new FirefoxDriver();
+                logger.info(browser + "browser is launched!");
+                break;
+            default:
+                System.out.println("Entered browser not present in config.properties file");
+                break;
+        }
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().deleteAllCookies();
+        driver.get(Utils.getPropertiesFileValue("url"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+}
