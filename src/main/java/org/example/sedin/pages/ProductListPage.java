@@ -1,20 +1,13 @@
 package org.example.sedin.pages;
 
-import io.cucumber.java.en.And;
-import lombok.extern.java.Log;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.sedin.data.Data;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 import static org.example.sedin.configuration.DriverSetup.driver;
@@ -53,46 +46,61 @@ public class ProductListPage {
         return false;
     }
 
+//    public void getItemPrices() throws InterruptedException {
+//        for (WebElement itemPrice : itemPrices) {
+//
+//            String parent = driver.getWindowHandle();
+//
+//            Double listingPrice=0.0d;
+//                listingPrice = Double.parseDouble(itemPrice.getText().replace("$", ""));
+//                LOG.info(listingPrice);
+//
+//            String clicklnk = Keys.chord(Keys.COMMAND, "t", Keys.ENTER);
+//
+//            driver.findElement(By.xpath
+//                    ("//div[contains(@class,'inventory_item_price') and text()='"+listingPrice+"']//preceding::a[@href='#']"))
+//                    .sendKeys(clicklnk);
+//
+//
+//            // Switch to new window opened
+//            for(String winHandle : driver.getWindowHandles()){
+//                driver.switchTo().window(winHandle);
+//            }
+//
+//            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$",""));
+//            LOG.info(detailPrice);
+//            LOG.info(listingPrice.equals(detailPrice));
+//
+//            Thread.sleep(2000);
+//            driver.close();
+//
+//            driver.switchTo().window(parent);
+//            Thread.sleep(2000);
+//
+//        }
+//
+//    }
+
     public void getItemPrices() throws InterruptedException {
-        for (WebElement itemPrice : itemPrices) {
-
-            String parent = driver.getWindowHandle();
-
-            Double listingPrice=0.0d;
-                listingPrice = Double.parseDouble(itemPrice.getText().replace("$", ""));
-                LOG.info(listingPrice);
-
-            String clicklnk = Keys.chord(Keys.COMMAND, "t", Keys.ENTER);
-
+        List<WebElement> webElement = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
+        int size = webElement.size();
+        for (int i = 1; i < size; i++) {
+            WebElement webElement1 = driver.findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
+            Double listingPrice = Double.parseDouble(webElement1.getText().replace("$", ""));
             driver.findElement(By.xpath
-                    ("//div[contains(@class,'inventory_item_price') and text()='"+listingPrice+"']//preceding::a[@id='item_4_img_link']"))
-                    .click();
-
-
-            // Switch to new window opened
-            for(String winHandle : driver.getWindowHandles()){
-                driver.switchTo().window(winHandle);
-            }
-
-            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$",""));
-            LOG.info(detailPrice);
+                            ("(//div[contains(@class,'inventory_item_price') and" +
+                                    " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
+            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
+            LOG.info("Listing Price:"+ listingPrice+" Details Price: "+detailPrice);
             LOG.info(listingPrice.equals(detailPrice));
-
-            Thread.sleep(2000);
-            driver.close();
-
-            driver.switchTo().window(parent);
-            Thread.sleep(2000);
-
+            driver.navigate().back();
         }
-
     }
-
 
     public void setTheProductData() {
         LOG.info(firstItemDesc.getText());
         data.setItemDescription(firstItemDesc.getText().trim());
-        data.setPriceValue(Double.parseDouble(firstItemPrice.getText().replace("$","")));
+        data.setPriceValue(Double.parseDouble(firstItemPrice.getText().replace("$", "")));
     }
 
     public void addProductToCart() {
