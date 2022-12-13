@@ -1,4 +1,4 @@
-package org.example.sedin.api;
+package org.example.sedin.apiTests;
 
 import io.restassured.http.ContentType;
 import org.apache.logging.log4j.LogManager;

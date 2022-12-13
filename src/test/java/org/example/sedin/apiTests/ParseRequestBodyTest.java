@@ -1,4 +1,4 @@
-package org.example.sedin.api;
+package org.example.sedin.apiTests;
 
 import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
@@ -7,15 +7,16 @@ import org.example.sedin.data.reqres.UserData;
 import org.example.sedin.model.CreateUserRequest;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class PostRequestBuilderExampleTest extends SetupConfig {
+public class ParseRequestBodyTest extends SetupConfig {
 
-    private static final Logger LOG = LogManager.getLogger(PostRequestBuilderExampleTest.class);
+    private static final Logger LOG = LogManager.getLogger(ParseRequestBodyTest.class);
 
     @Test
     public void postTestUsingBuilderPattern() {

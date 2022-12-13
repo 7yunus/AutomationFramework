@@ -2,7 +2,7 @@ package org.example.sedin.configuration;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.sedin.utilities.Utils;
+import org.example.sedin.utilities.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +19,7 @@ public class DriverSetup {
     }
 
     public void initialisation() throws IOException {
-        String browser = Utils.getPropertiesFileValue("browser"); //get browser value from config.prop
+        String browser = PropertiesReader.getPropertiesFileValue("browser"); //get browser value from config.prop
         switch (browser) {
             case "chrome":
 			/*
@@ -41,7 +41,7 @@ public class DriverSetup {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().deleteAllCookies();
-        driver.get(Utils.getPropertiesFileValue("url"));
+        driver.get(PropertiesReader.getPropertiesFileValue("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 }

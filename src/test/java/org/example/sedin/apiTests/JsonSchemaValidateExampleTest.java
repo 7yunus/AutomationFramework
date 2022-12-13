@@ -1,4 +1,4 @@
-package org.example.sedin.api;
+package org.example.sedin.apiTests;
 
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
