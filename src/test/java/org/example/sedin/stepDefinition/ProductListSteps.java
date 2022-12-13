@@ -29,4 +29,9 @@ public class ProductListSteps {
         productListPage.setTheProductData();
         productListPage.addProductToCart();
     }
+
+    @And("check all product prices in product listing page")
+    public void checkAllProductPricesInProductListingPage() throws InterruptedException {
+        productListPage.getItemPrices();
+    }
 }
