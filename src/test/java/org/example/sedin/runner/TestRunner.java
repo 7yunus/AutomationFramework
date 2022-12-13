@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions
         (
                 features = "src/test/resources/features",
-                glue = {"org.example.cermati.stepDefinition","org.example.cermati.hooks"},
+                glue = {"org.example.sedin.stepDefinition","org.example.sedin.hooks"},
                 tags = "@Test",
                 plugin = {"pretty",
                         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",

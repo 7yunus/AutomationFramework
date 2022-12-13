@@ -126,7 +126,7 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <projectName>cermati-test</projectName>
+                <projectName>sedin-test</projectName>
                 <outputDirectory>${project.build.directory}</outputDirectory>
                 <inputDirectory>${project.build.directory}</inputDirectory>
                 <jsonFiles>
