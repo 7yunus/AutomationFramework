@@ -8,9 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.sedin.apiTests.configuration.SetupConfig;
 import org.example.sedin.data.reqres.UserData;
 import org.example.sedin.model.CreateUserRequest;
-import org.example.sedin.runner.ListenerClass;
 import org.json.JSONObject;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -67,8 +65,8 @@ public class ParseRequestBodyTest extends SetupConfig {
     //3rd option: create request pojo class and set the values
     private CreateUserRequest userDataBuilder3() {
         CreateUserRequest createUserRequest = new CreateUserRequest();
-       createUserRequest.setName("Yunus");
-       createUserRequest.setJob("QA");
+        createUserRequest.setName("Yunus");
+        createUserRequest.setJob("QA");
         LOG.info(createUserRequest);
         return createUserRequest;
     }

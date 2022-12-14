@@ -53,10 +53,10 @@ public class ProductListPage {
             WebElement webElement1 = driver.findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
             Double listingPrice = Double.parseDouble(webElement1.getText().replace("$", ""));
             driver.findElement(By.xpath
-                            ("(//div[contains(@class,'inventory_item_price') and" +
-                                    " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
+                    ("(//div[contains(@class,'inventory_item_price') and" +
+                            " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
             Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
-            LOG.info("Listing Price:"+ listingPrice+" Details Price: "+detailPrice);
+            LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
             LOG.info(listingPrice.equals(detailPrice));
             driver.navigate().back();
         }

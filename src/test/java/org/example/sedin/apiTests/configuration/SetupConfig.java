@@ -1,10 +1,5 @@
 package org.example.sedin.apiTests.configuration;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -13,7 +8,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 
 import static org.hamcrest.Matchers.lessThan;
 
@@ -36,7 +30,6 @@ public class SetupConfig {
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
     }
-
 
 
 }

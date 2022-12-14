@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class DriverSetup {
+    private static final Logger LOG = LogManager.getLogger(DriverSetup.class);
     public static WebDriver driver;
-    public static Logger logger = LogManager.getLogger(DriverSetup.class);
 
     public static WebDriver getDriver() {
         return driver;
@@ -28,11 +28,11 @@ public class DriverSetup {
 			they are not present on the path
 			*/
                 driver = new ChromeDriver();
-                logger.info(browser + "browser is launched!");
+                LOG.info(browser + "browser is launched!");
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
-                logger.info(browser + "browser is launched!");
+                LOG.info(browser + "browser is launched!");
                 break;
             default:
                 System.out.println("Entered browser not present in config.properties file");

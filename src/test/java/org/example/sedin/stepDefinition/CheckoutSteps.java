@@ -18,7 +18,7 @@ public class CheckoutSteps {
     @And("fills checkout form with first name {string}, last name {string} and zip code {string} and submits")
     public void fillsCheckoutFormWithFirstNameLastNameAndZipCodeAndSubmits
             (String firstName, String lastName, String zipCode) {
-        checkoutPage.fillCheckoutForm(firstName,lastName,zipCode);
+        checkoutPage.fillCheckoutForm(firstName, lastName, zipCode);
         checkoutPage.clickOnContinueButton();
     }
 

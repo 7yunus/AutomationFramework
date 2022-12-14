@@ -12,12 +12,12 @@ public class DatabaseUtil {
         ResultSet rs = null;
         Statement statement = null;
         Connection conn = null;
-        String dbConnectionString =  PropertiesReader.getPropertiesFileValue("dbConnectionString");
-        String dbUsername =  PropertiesReader.getPropertiesFileValue("dbUsername");
-        String dbPassword =  PropertiesReader.getPropertiesFileValue("dbPassword");
+        String dbConnectionString = PropertiesReader.getPropertiesFileValue("dbConnectionString");
+        String dbUsername = PropertiesReader.getPropertiesFileValue("dbUsername");
+        String dbPassword = PropertiesReader.getPropertiesFileValue("dbPassword");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbConnectionString,dbUsername,dbPassword);
+            conn = DriverManager.getConnection(dbConnectionString, dbUsername, dbPassword);
 
             if (conn != null) {
                 statement = conn.createStatement();

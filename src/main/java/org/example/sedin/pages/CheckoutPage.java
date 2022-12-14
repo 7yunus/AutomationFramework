@@ -59,9 +59,9 @@ public class CheckoutPage {
 
     public ArrayList<Object> getCheckoutProductDetails() {
         ArrayList<Object> productDetails = new ArrayList<>();
-        productDetails.add(Double.parseDouble(itemPrice.getText().replace("$","")));
+        productDetails.add(Double.parseDouble(itemPrice.getText().replace("$", "")));
         productDetails.add(itemDesc.getText().trim());
-        LOG.info("productDetails: "+productDetails);
+        LOG.info("productDetails: " + productDetails);
         return productDetails;
     }
 
@@ -72,7 +72,7 @@ public class CheckoutPage {
     }
 
     public String getThankYouMessage() {
-       return thankYouMessageText.getText();
+        return thankYouMessageText.getText();
     }
 
 }

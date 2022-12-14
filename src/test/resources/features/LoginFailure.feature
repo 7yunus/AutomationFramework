@@ -7,4 +7,4 @@ Feature: To validate the error message in login page
     Then error message "<message>" should be displayed to the user
     Examples:
       | username   | password     | message                                                     |
-      | wrong_user | wrong_secret | Username and password do not match any user in this service1 |
+      | wrong_user | wrong_secret | Username and password do not match any user in this service |

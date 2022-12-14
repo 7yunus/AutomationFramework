@@ -5,10 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static org.example.sedin.configuration.DriverSetup.driver;
 
 public class LoginPage {
@@ -30,11 +26,11 @@ public class LoginPage {
     }
 
     public boolean isProductPageOpened() {
-        WebElement product=driver.findElement(By.xpath("//span[@class='title']"));
+        WebElement product = driver.findElement(By.xpath("//span[@class='title']"));
         return product.isDisplayed();
     }
 
-    public String getLoginErrorMessage(){
+    public String getLoginErrorMessage() {
         return loginErrorMessage.getText();
     }
 }
