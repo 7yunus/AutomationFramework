@@ -1,4 +1,4 @@
-@Test
+@UITest
 Feature: To validate if desired product is present in product listing page
 
   Scenario Outline: Validate if item is present in product listing page

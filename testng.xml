@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sedin Test Suite">
+    <listeners>
+<!--        <listener class-name="org.example.sedin.runner.ListenerClass"/>-->
+    </listeners>
     <test name="UITest">
         <classes>
             <class name="org.example.sedin.runner.TestRunner"/>
@@ -11,4 +14,16 @@
             <package name="org.example.sedin.apiTests"/>
         </packages>
     </test>
+
+<!--    <test name="APITests">-->
+<!--        <classes>-->
+<!--            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="APITests1">-->
+<!--        <classes>-->
+<!--            <class name="org.example.sedin.runner.TestRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
 </suite>

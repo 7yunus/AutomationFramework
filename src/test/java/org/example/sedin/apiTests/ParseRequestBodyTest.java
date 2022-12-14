@@ -1,12 +1,16 @@
 package org.example.sedin.apiTests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.sedin.apiTests.configuration.SetupConfig;
 import org.example.sedin.data.reqres.UserData;
 import org.example.sedin.model.CreateUserRequest;
+import org.example.sedin.runner.ListenerClass;
 import org.json.JSONObject;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -15,6 +19,8 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+@Epic("APITests")
+@Feature("How do you parse the request body using the request builder")
 public class ParseRequestBodyTest extends SetupConfig {
 
     private static final Logger LOG = LogManager.getLogger(ParseRequestBodyTest.class);

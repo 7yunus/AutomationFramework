@@ -1,11 +1,15 @@
 package org.example.sedin.apiTests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.sedin.data.reqres.PostData;
+import org.example.sedin.runner.ListenerClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.InputStream;
@@ -17,6 +21,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
+@Epic("APITests")
+@Feature("How do you validate the Json Schema in API")
 public class JsonSchemaValidateExampleTest {
 
     private static final Logger LOG = LogManager.getLogger(JsonSchemaValidateExampleTest.class);

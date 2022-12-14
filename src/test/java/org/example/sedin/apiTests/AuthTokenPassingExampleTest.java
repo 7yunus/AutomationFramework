@@ -1,5 +1,6 @@
 package org.example.sedin.apiTests;
 
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +11,8 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
+@Epic("APITests")
+@Feature("How do you take the token/auth from one request and pass to next request?")
 public class AuthTokenPassingExampleTest {
 
     private static final String URL = "https://reqres.in";

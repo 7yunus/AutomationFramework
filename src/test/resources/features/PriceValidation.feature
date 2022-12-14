@@ -1,4 +1,4 @@
-@Test
+@UITest
 Feature: Validate the price with product listing with product individual page
 
   Scenario: Verify the product price of each product in product listing and product details
