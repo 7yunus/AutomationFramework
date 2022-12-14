@@ -13,5 +13,4 @@ public class UserData {
     public String password;
     public String name;
     public String job;
-
 }

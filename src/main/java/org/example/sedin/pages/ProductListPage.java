@@ -14,8 +14,7 @@ import static org.example.sedin.configuration.DriverSetup.driver;
 
 public class ProductListPage {
     private static final Logger LOG = LogManager.getLogger(ProductListPage.class);
-
-    static Data data = new Data();
+    Data data = new Data();
 
     @FindBy(css = ".inventory_item_name")
     List<WebElement> itemNames;
@@ -46,7 +45,7 @@ public class ProductListPage {
         return false;
     }
 
-    public void getItemPrices() throws InterruptedException {
+    public boolean getItemPrices() {
         List<WebElement> webElement = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
         int size = webElement.size();
         for (int i = 1; i < size; i++) {
@@ -57,13 +56,15 @@ public class ProductListPage {
                             " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
             Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
             LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
-            LOG.info(listingPrice.equals(detailPrice));
+            if(!listingPrice.equals(detailPrice)){
+                return false;
+            }
             driver.navigate().back();
         }
+        return true;
     }
 
     public void setTheProductData() {
-        LOG.info(firstItemDesc.getText());
         data.setItemDescription(firstItemDesc.getText().trim());
         data.setPriceValue(Double.parseDouble(firstItemPrice.getText().replace("$", "")));
     }

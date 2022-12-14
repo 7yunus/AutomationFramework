@@ -15,25 +15,20 @@ public class CheckoutPage {
 
     @FindBy(xpath = "//button[@id='checkout']")
     WebElement checkoutButton;
-
     @FindBy(xpath = "//input[@id='first-name']")
     WebElement firstNameField;
     @FindBy(xpath = "//input[@id='last-name']")
     WebElement lastNameField;
     @FindBy(xpath = "//input[@id='postal-code']")
     WebElement zipField;
-
     @FindBy(xpath = "//input[@id='continue']")
     WebElement continueButton;
-
     @FindBy(xpath = "//div[@class='inventory_item_desc']")
     WebElement itemDesc;
     @FindBy(xpath = "//div[@class='inventory_item_price']")
     WebElement itemPrice;
-
     @FindBy(xpath = "//button[@id='finish']")
     WebElement finishButton;
-
     @FindBy(xpath = "//h2[@class='complete-header']")
     WebElement thankYouMessageText;
 
@@ -65,7 +60,6 @@ public class CheckoutPage {
         return productDetails;
     }
 
-
     public void clickOnFinishButton() {
         LOG.info("Clicking on checkout button");
         finishButton.click();
@@ -74,5 +68,4 @@ public class CheckoutPage {
     public String getThankYouMessage() {
         return thankYouMessageText.getText();
     }
-
 }
