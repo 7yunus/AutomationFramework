@@ -42,6 +42,6 @@ public class DriverSetup {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().deleteAllCookies();
         driver.get(PropertiesReader.getPropertiesFileValue("url"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 }

@@ -57,5 +57,4 @@ public class JsonSchemaValidateExampleTest {
 
     }
 }
-
 //Schema created online using  https://extendsclass.com/json-schema-validator.html

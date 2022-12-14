@@ -34,7 +34,6 @@ public class AuthTokenPassingExampleTest {
                 .extract().as(AuthenticationToken.class);
 
         LOG.info(authenticationToken.getToken()); //take the token/auth from one request and pass to next request
-
     }
 
 }

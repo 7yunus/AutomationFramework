@@ -6,7 +6,6 @@ import org.example.sedin.pages.ProductListPage;
 import org.testng.Assert;
 
 public class ProductListSteps {
-
     ProductListPage productListPage = new ProductListPage();
 
     @Then("product {string} should be displayed in product listing page")

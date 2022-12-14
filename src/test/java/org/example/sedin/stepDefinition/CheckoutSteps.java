@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class CheckoutSteps {
     CheckoutPage checkoutPage = new CheckoutPage();
-     Data data = new Data();
+    Data data = new Data();
 
     @And("proceeds to checkout page")
     public void proceedsToCheckoutPage() {
@@ -33,7 +33,5 @@ public class CheckoutSteps {
     @Then("success order message {string} should be displayed to user")
     public void successOrderMessageShouldBeDisplayedToUser(String message) {
         Assert.assertTrue(checkoutPage.getThankYouMessage().equalsIgnoreCase(message));
-
     }
-
 }

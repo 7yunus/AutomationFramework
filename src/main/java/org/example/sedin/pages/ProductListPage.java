@@ -46,41 +46,6 @@ public class ProductListPage {
         return false;
     }
 
-//    public void getItemPrices() throws InterruptedException {
-//        for (WebElement itemPrice : itemPrices) {
-//
-//            String parent = driver.getWindowHandle();
-//
-//            Double listingPrice=0.0d;
-//                listingPrice = Double.parseDouble(itemPrice.getText().replace("$", ""));
-//                LOG.info(listingPrice);
-//
-//            String clicklnk = Keys.chord(Keys.COMMAND, "t", Keys.ENTER);
-//
-//            driver.findElement(By.xpath
-//                    ("//div[contains(@class,'inventory_item_price') and text()='"+listingPrice+"']//preceding::a[@href='#']"))
-//                    .sendKeys(clicklnk);
-//
-//
-//            // Switch to new window opened
-//            for(String winHandle : driver.getWindowHandles()){
-//                driver.switchTo().window(winHandle);
-//            }
-//
-//            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$",""));
-//            LOG.info(detailPrice);
-//            LOG.info(listingPrice.equals(detailPrice));
-//
-//            Thread.sleep(2000);
-//            driver.close();
-//
-//            driver.switchTo().window(parent);
-//            Thread.sleep(2000);
-//
-//        }
-//
-//    }
-
     public void getItemPrices() throws InterruptedException {
         List<WebElement> webElement = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
         int size = webElement.size();
@@ -107,11 +72,8 @@ public class ProductListPage {
         addToCartFirstButton.click();
     }
 
-
     public void clickOnShoppingCartIcon() {
         LOG.info("Clicking on the cart icon to proceed to cart");
         shoppingCartIcon.click();
     }
-
-
 }

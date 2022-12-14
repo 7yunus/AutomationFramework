@@ -13,11 +13,6 @@ import static org.example.sedin.configuration.DriverSetup.driver;
 
 public class LoginPage {
 
-    public final String selectCategory = "//a[text()='${subCategoryValue}']/..//following-sibling::ul//a[text()='${category}']";
-    public final String selectFinalSubCategory = "//a[text()='${finalSubCategory}']";
-    public final String shopByOption = "//span[contains(text(), '${shopByOption}')]//preceding-sibling::span[text()='See All']";
-    public final String filterOption = "//div/span[text()='${filterOption}']";
-
     @FindBy(xpath = "//h3[@data-test='error']")
     public WebElement loginErrorMessage;
 
@@ -42,43 +37,4 @@ public class LoginPage {
     public String getLoginErrorMessage(){
         return loginErrorMessage.getText();
     }
-
-//    public void navigateToCategory(String category, String subCategory) {
-//        categoryDropdown.click();
-//        driver.findElement(By.xpath(selectCategory.replace("${category}", category)
-//                .replace("${subCategoryValue}", subCategory))).click();
-//    }
-//
-//    public void navigateToFinalSubCategory(String finalSubCategory) {
-//        driver.findElement(By.xpath(selectFinalSubCategory.replace("${finalSubCategory}",
-//                finalSubCategory))).click();
-//    }
-//
-//    public void clickSeeAllOption(String shopByOptionString) {
-//        driver.findElement(By.xpath(shopByOption.replace("${shopByOption}", shopByOptionString))).click();
-//    }
-//
-//    public void applyFilters(String filter1, String filter2, String filter3) {
-//        driver.findElement(By.xpath(filterOption.replace("${filterOption}", filter1))).click();
-//        screenSizeFilterCheckbox.click();
-//        driver.findElement(By.xpath(filterOption.replace("${filterOption}", filter2))).click();
-//        priceFromInputFilter.sendKeys("100");
-//        priceToInputFilter.sendKeys("1000");
-//        driver.findElement(By.xpath(filterOption.replace("${filterOption}", filter3))).click();
-//        itemLocationFilterRadioOption.click();
-//        applyButton.click();
-//    }
-//
-//    public boolean isFiltersApplied(ArrayList<String> expectedFilterTags) {
-//        appliedFilterDropdown.click();
-//        ArrayList<String> appliedFilters = new ArrayList<>();
-//        for (WebElement filter : appliedFilterTags) {
-//            appliedFilters.add(filter.getText());
-//        }
-//
-//        List<String> actualFilterTags = appliedFilters.stream()
-//                .map(x -> x.replaceAll(":[^:]*$", ""))
-//                .collect(Collectors.toList());
-//        return actualFilterTags.equals(expectedFilterTags);
-//    }
 }

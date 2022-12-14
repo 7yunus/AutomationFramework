@@ -1,4 +1,4 @@
-package org.example.sedin.apiTests;
+package org.example.sedin.apiTests.configuration;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

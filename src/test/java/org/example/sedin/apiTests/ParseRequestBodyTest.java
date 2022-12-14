@@ -3,6 +3,7 @@ package org.example.sedin.apiTests;
 import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.sedin.apiTests.configuration.SetupConfig;
 import org.example.sedin.data.reqres.UserData;
 import org.example.sedin.model.CreateUserRequest;
 import org.json.JSONObject;

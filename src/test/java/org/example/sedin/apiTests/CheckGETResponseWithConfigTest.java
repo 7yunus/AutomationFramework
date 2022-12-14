@@ -3,6 +3,7 @@ package org.example.sedin.apiTests;
 import com.google.gson.Gson;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.sedin.apiTests.configuration.SetupConfig;
 import org.example.sedin.model.listUsersResponse.ListUsersResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -31,6 +32,5 @@ public class CheckGETResponseWithConfigTest extends SetupConfig {
         LOG.info("support text: "+listUsersResponse.getSupport().getText());
 
         Assert.assertTrue(listUsersResponse.getData().get(0).getAvatar().contains("reqres"));
-
     }
 }
