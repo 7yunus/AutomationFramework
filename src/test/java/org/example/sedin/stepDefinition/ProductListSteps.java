@@ -10,7 +10,8 @@ public class ProductListSteps {
 
     @Then("product {string} should be displayed in product listing page")
     public void productShouldBeDisplayedInProductListingPage(String productName) {
-        Assert.assertTrue(productListPage.isItemNamePresent(productName));
+        Assert.assertTrue(productListPage.isItemNamePresent(productName),
+                "Product not present in listing page");
     }
 
     @And("adds product to cart")
@@ -29,8 +30,8 @@ public class ProductListSteps {
         productListPage.addProductToCart();
     }
 
-    @And("check all product prices in product listing page")
-    public void checkAllProductPricesInProductListingPage() throws InterruptedException {
-        productListPage.getItemPrices();
+    @Then("validates if price of product listing and product individual page are in sync")
+    public void validatesIfPriceOfProductListingAndProductIndividualPageAreInSync() {
+        Assert.assertTrue(productListPage.getItemPrices(),"Product listing and detail prices are not equal");
     }
 }

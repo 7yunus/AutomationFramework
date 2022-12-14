@@ -5,10 +5,4 @@ Feature: Validate the price with product listing with product individual page
     Given User enters username "standard_user" and password "secret_sauce"
     When User clicks on Login button
     And User enters the products webpage
-    And check all product prices in product listing page
-
-
-
-
-
-
+    Then validates if price of product listing and product individual page are in sync

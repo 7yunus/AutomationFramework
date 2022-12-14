@@ -24,14 +24,16 @@ public class CheckoutSteps {
 
     @And("verifies the product details and clicks the finish button")
     public void verifiesTheProductDetailsAndClicksTheFinishButton() {
-        System.out.println(data.getItemDescription());
-        Assert.assertTrue(checkoutPage.getCheckoutProductDetails().contains(data.getItemDescription()));
-        Assert.assertTrue(checkoutPage.getCheckoutProductDetails().contains(data.getPriceValue()));
+        Assert.assertTrue(checkoutPage.getCheckoutProductDetails().contains(data.getItemDescription()),
+                "Item description in checkout does not match with product details page");
+        Assert.assertTrue(checkoutPage.getCheckoutProductDetails().contains(data.getPriceValue()),
+                "Item price in checkout does not match with product details page");
         checkoutPage.clickOnFinishButton();
     }
 
     @Then("success order message {string} should be displayed to user")
     public void successOrderMessageShouldBeDisplayedToUser(String message) {
-        Assert.assertTrue(checkoutPage.getThankYouMessage().equalsIgnoreCase(message));
+        Assert.assertTrue(checkoutPage.getThankYouMessage().equalsIgnoreCase(message),
+                "Order is not success or thank you page is not loading");
     }
 }

@@ -6,9 +6,11 @@
             <class name="org.example.sedin.runner.TestRunner"/>
         </classes>
     </test>
-<!--        <test name="APITests">-->
-<!--            <packages>-->
-<!--                <package name="org.example.sedin.apiTests"/>-->
-<!--            </packages>-->
-<!--        </test>-->
+        <test name="APITests">
+            <packages>
+                <package name="org.example.sedin.apiTests"/>
+            </packages>
+        </test>
+
+
 </suite>
