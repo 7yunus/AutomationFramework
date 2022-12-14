@@ -57,8 +57,4 @@ Allure report path-> target/allure-results
 > src/test/java/org/example/sedin/apiTests/JsonSchemaValidateExampleTest.java
 > src/test/java/org/example/sedin/apiTests/ParseRequestBodyTest.java
 
-**Allure Report Screenshots**
-
-![allureReport1](https://user-images.githubusercontent.com/67258606/204088922-8909048c-f71a-4698-be45-0c81e1d31384.png)
-![allureReport1](https://user-images.githubusercontent.com/67258606/204088865-d4c4c5d8-f0e3-4bbf-8e53-a21a6fdcf879.png)
 
