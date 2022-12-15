@@ -5,8 +5,7 @@ Feature: Parse request
   Scenario: Parse request body
     Given the API request data is set
     When [POST] create users API is called to create users
-    Then [POST] API should return response code 200
-    Then response code should be 200
+    Then [POST] API should return response code 201
 
     @API2
   Scenario Outline: Json schema validation

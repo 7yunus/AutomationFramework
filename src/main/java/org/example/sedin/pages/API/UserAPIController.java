@@ -31,11 +31,14 @@ public class UserAPIController extends APIConfig {
     public Response postTestUsingBuilderPattern() {
         UserData userData = userDataBuilder();
        Response response =  given()
-//               .spec(request)
+               .spec(getRequestSpecification())
                .body(userData)
                 .when()
-                .post("/api/users");
-//                .then()
+                .post("/api/users")
+
+                .then().
+               spec(getResponseSpecification())
+               .extract().response();
 //                .statusCode(201)
 //                .and()
 //                .assertThat()
