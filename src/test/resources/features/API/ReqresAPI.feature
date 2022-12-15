@@ -1,6 +1,7 @@
 @APITests @APIRegression
 Feature: Reqres API validation
 
+  @t1
   Scenario: Verify create users POST API /api/users
     When [POST] create users API is called to create users
     Then [POST] API should return response code 201

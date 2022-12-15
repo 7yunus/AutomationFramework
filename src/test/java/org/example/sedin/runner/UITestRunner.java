@@ -11,7 +11,8 @@ import io.cucumber.testng.CucumberOptions;
                 monochrome = true,
                 plugin = {"pretty",
                         "json:target/cucumber.json",
-                        "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+                        "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 }
         )
 public class UITestRunner extends AbstractTestNGCucumberTests {
