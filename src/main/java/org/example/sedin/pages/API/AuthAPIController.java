@@ -13,8 +13,9 @@ import static org.hamcrest.Matchers.notNullValue;
 public class AuthAPIController extends APIConfig {
     private static final Logger LOG = LogManager.getLogger(AuthAPIController.class);
 
-    public Response getAuthenticationToken() {
-        AuthenticationPojo requestBody = new AuthenticationPojo("eve.holt@reqres.in", "pistol");
+    public Response getAuthenticationToken(String username, String password) {
+        AuthenticationPojo requestBody = new AuthenticationPojo(username, password);
+
         return given().contentType(ContentType.JSON)
                 .spec(getRequestSpecification())
                 .body(requestBody)

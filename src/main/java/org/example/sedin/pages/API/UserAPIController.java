@@ -124,10 +124,13 @@ public class UserAPIController extends APIConfig {
 
 
     public Response getRequestTestwithRestAssuredConfig() {
-        return given().when()
+        return given()
+                .spec(getRequestSpecification())
+                .when()
                 .queryParam("page", 2)
                 .get("/api/users")
                 .then()
+                .spec(getResponseSpecification())
                 .statusCode(200)
                 .and()
                 .assertThat()

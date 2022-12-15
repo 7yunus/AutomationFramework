@@ -41,6 +41,37 @@ public class UserAPISteps extends APIConfig {
         response.then().assertThat().statusCode(responseCode);
     }
 
+    @When("[POST] create users API is called to create users with request name {string} and job {string}")
+    public void postCreateUsersAPIIsCalledToCreateUsersWithRequestNameAndJob(String name, String job) {
+        response = userApiController.testPostRequests(name,job);
+    }
+
+    @Then("[POST] validate the json schema of the response {string}")
+    public void postValidateTheJsonSchemaOfTheResponse(String schemaFile) {
+        response.then().body(JsonSchemaValidator
+                .matchesJsonSchema(new File(schemaFile)));
+    }
+
+    @When("[GET] users API is called to get the details of users")
+    public void getUsersAPIIsCalledToGetTheDetailsOfUsers() {
+        listUsersResponse = gson.fromJson(userApiController.getRequestTestwithRestAssuredConfig().asString(), ListUsersResponse.class);
+    }
+
+    @Then("[GET] API should return response code {int}")
+    public void getAPIShouldReturnResponseCode(int arg0) {
+        //        Assert.assertNotNull(listUsersResponse.getData().get(0).getAvatar());
+    }
+
+    @When("[POST] register users API is called to register the users with username {string} and password {string}")
+    public void postRegisterUsersAPIIsCalledToRegisterTheUsersWithUsernameAndPassword(String username, String password){
+        registerUsersAuthResponse = gson.fromJson(authAPIController.
+                getAuthenticationToken(username,password).asString(), RegisterUsersAuthResponse.class);
+    }
+
+    @Then("[POST] auth token should be returned in response")
+    public void postAuthTokenShouldBeReturnedInResponse() {
+        Assert.assertNotNull(registerUsersAuthResponse.getToken());
+    }
 
 
 
@@ -59,32 +90,29 @@ public class UserAPISteps extends APIConfig {
     @When("the API request is sent with name {string} and job {string}")
     public void theAPIRequestIsSentWithNameAndJob(String name, String job) {
 //        createUsersResponse = gson.fromJson(userApiController.testPostRequests(name,job).asString(), CreateUsersResponse.class);
-
         response = userApiController.testPostRequests(name,job);
     }
 
-    @Then("validate the json schema of the response {string}")
-    public void validateTheJsonSchemaOfTheResponse(String schemaFile) {
-        response.then().body(JsonSchemaValidator
-                .matchesJsonSchema(new File(schemaFile)));
-    }
 
-    @When("the GET API request is sent")
-    public void theGETAPIRequestIsSent() {
-        listUsersResponse = gson.fromJson(userApiController.getRequestTestwithRestAssuredConfig().asString(), ListUsersResponse.class);
-    }
-
-    @Then("GET response code should be {int}")
-    public void getResponseCodeShouldBe(int arg0) {
-//        Assert.assertNotNull(listUsersResponse.getData().get(0).getAvatar());
-    }
-
-    @When("the Auth API request is sent")
-    public void theAuthAPIRequestIsSent() {
-        registerUsersAuthResponse = gson.fromJson(authAPIController.getAuthenticationToken().asString(), RegisterUsersAuthResponse.class);
-        Assert.assertNotNull(registerUsersAuthResponse.getToken());
-
-    }
+//
+//    @Then("validate the json schema of the response {string}")
+//    public void validateTheJsonSchemaOfTheResponse(String schemaFile) {
+//        response.then().body(JsonSchemaValidator
+//                .matchesJsonSchema(new File(schemaFile)));
+//    }
+//
+//
+//    @Then("GET response code should be {int}")
+//    public void getResponseCodeShouldBe(int arg0) {
+////        Assert.assertNotNull(listUsersResponse.getData().get(0).getAvatar());
+//    }
+//
+//    @When("the Auth API request is sent")
+//    public void theAuthAPIRequestIsSent() {
+//        registerUsersAuthResponse = gson.fromJson(authAPIController.getAuthenticationToken().asString(), RegisterUsersAuthResponse.class);
+//        Assert.assertNotNull(registerUsersAuthResponse.getToken());
+//
+//    }
 
 
 }
