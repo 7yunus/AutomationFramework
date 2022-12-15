@@ -8,7 +8,6 @@ import org.example.sedin.configuration.APIConfig;
 import org.example.sedin.data.reqres.AuthenticationPojo;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.notNullValue;
 
 public class AuthAPIController extends APIConfig {
     private static final Logger LOG = LogManager.getLogger(AuthAPIController.class);

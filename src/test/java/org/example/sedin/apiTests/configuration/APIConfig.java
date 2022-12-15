@@ -6,7 +6,6 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +13,6 @@ import org.testng.annotations.BeforeClass;
 import static org.hamcrest.Matchers.lessThan;
 
 public class APIConfig {
-
 
 
     @BeforeClass

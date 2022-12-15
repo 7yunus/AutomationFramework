@@ -1,5 +1,5 @@
-@APITests @Regression
-Feature: Reqres APIs validation
+@APITests @APIRegression
+Feature: Reqres API validation
 
   Scenario: Verify create users POST API /api/users
     When [POST] create users API is called to create users
@@ -20,5 +20,5 @@ Feature: Reqres APIs validation
     When [POST] register users API is called to register the users with username "<username>" and password "<password>"
     Then [POST] auth token should be returned in response
     Examples:
-      | username | password |
-      | eve.holt@reqres.in    | pistol       |
+      | username           | password |
+      | eve.holt@reqres.in | pistol   |

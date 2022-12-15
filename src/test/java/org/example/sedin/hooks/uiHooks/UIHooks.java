@@ -1,4 +1,4 @@
-package org.example.sedin.hooks;
+package org.example.sedin.hooks.uiHooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -13,13 +13,13 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-public class Hooks extends DriverSetup {
+public class UIHooks extends DriverSetup {
 
     private static final Logger LOG = LogManager.getLogger(DriverSetup.class);
 
     @Before
     public void setUp() throws IOException {
-//        initialisation();
+        driverInitialisation();
     }
 
     @After
@@ -31,7 +31,7 @@ public class Hooks extends DriverSetup {
             } catch (Exception e) {
             }
         }
-//        LOG.info("Quit browser!");
-//        driver.quit();
+        LOG.info("Quit browser!");
+        driver.quit();
     }
 }

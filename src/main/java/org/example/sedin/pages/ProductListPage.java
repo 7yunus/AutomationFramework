@@ -56,7 +56,7 @@ public class ProductListPage {
                             " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
             Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
             LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
-            if(!listingPrice.equals(detailPrice)){
+            if (!listingPrice.equals(detailPrice)) {
                 return false;
             }
             driver.navigate().back();

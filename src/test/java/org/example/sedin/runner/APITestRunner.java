@@ -6,13 +6,13 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions
         (
                 features = "src/test/resources/features",
-                glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-                tags = "@Regression",
+                glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks.APIHooks"},
+                tags = "@APIRegression",
                 monochrome = true,
                 plugin = {"pretty",
                         "json:target/cucumber.json",
                         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
                 }
         )
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class APITestRunner extends AbstractTestNGCucumberTests {
 }

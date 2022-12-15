@@ -3,20 +3,20 @@
 <suite name="Sedin Test Suite">
     <test name="UITest">
         <classes>
-            <class name="org.example.sedin.runner.TestRunner"/>
+            <class name="org.example.sedin.runner.UITestRunner"/>
         </classes>
     </test>
-<!--        <test name="APITests">-->
-<!--            <packages>-->
-<!--                <package name="org.example.sedin.apiTests"/>-->
-<!--            </packages>-->
-<!--        </test>-->
+    <!--        <test name="APITests">-->
+    <!--            <packages>-->
+    <!--                <package name="org.example.sedin.apiTests"/>-->
+    <!--            </packages>-->
+    <!--        </test>-->
 
-<!--    <test name="APITests">-->
-<!--        <classes>-->
-<!--            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <!--    <test name="APITests">-->
+    <!--        <classes>-->
+    <!--            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 
 
 </suite>

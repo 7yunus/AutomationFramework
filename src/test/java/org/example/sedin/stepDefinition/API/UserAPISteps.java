@@ -17,14 +17,13 @@ import org.testng.Assert;
 import java.io.File;
 
 public class UserAPISteps extends APIConfig {
-    private Gson gson = new Gson();
     Response response;
     UserAPIController userApiController = new UserAPIController();
     AuthAPIController authAPIController = new AuthAPIController();
     CreateUsersResponse createUsersResponse = new CreateUsersResponse();
     ListUsersResponse listUsersResponse = new ListUsersResponse();
     RegisterUsersAuthResponse registerUsersAuthResponse = new RegisterUsersAuthResponse();
-
+    private Gson gson = new Gson();
 
     @Given("the API request data is set")
     public void theAPIRequestDataIsSet() {
@@ -43,7 +42,7 @@ public class UserAPISteps extends APIConfig {
 
     @When("[POST] create users API is called to create users with request name {string} and job {string}")
     public void postCreateUsersAPIIsCalledToCreateUsersWithRequestNameAndJob(String name, String job) {
-        response = userApiController.testPostRequests(name,job);
+        response = userApiController.testPostRequests(name, job);
     }
 
     @Then("[POST] validate the json schema of the response {string}")
@@ -63,18 +62,15 @@ public class UserAPISteps extends APIConfig {
     }
 
     @When("[POST] register users API is called to register the users with username {string} and password {string}")
-    public void postRegisterUsersAPIIsCalledToRegisterTheUsersWithUsernameAndPassword(String username, String password){
+    public void postRegisterUsersAPIIsCalledToRegisterTheUsersWithUsernameAndPassword(String username, String password) {
         registerUsersAuthResponse = gson.fromJson(authAPIController.
-                getAuthenticationToken(username,password).asString(), RegisterUsersAuthResponse.class);
+                getAuthenticationToken(username, password).asString(), RegisterUsersAuthResponse.class);
     }
 
     @Then("[POST] auth token should be returned in response")
     public void postAuthTokenShouldBeReturnedInResponse() {
         Assert.assertNotNull(registerUsersAuthResponse.getToken());
     }
-
-
-
 
 
     @When("the API request is sent")
@@ -90,7 +86,7 @@ public class UserAPISteps extends APIConfig {
     @When("the API request is sent with name {string} and job {string}")
     public void theAPIRequestIsSentWithNameAndJob(String name, String job) {
 //        createUsersResponse = gson.fromJson(userApiController.testPostRequests(name,job).asString(), CreateUsersResponse.class);
-        response = userApiController.testPostRequests(name,job);
+        response = userApiController.testPostRequests(name, job);
     }
 
 

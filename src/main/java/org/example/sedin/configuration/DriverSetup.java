@@ -18,7 +18,7 @@ public class DriverSetup {
         return driver;
     }
 
-    public void initialisation() throws IOException {
+    public void driverInitialisation() throws IOException {
         String browser = PropertiesReader.getPropertiesFileValue("browser"); //get browser value from config.prop
         switch (browser) {
             case "chrome":

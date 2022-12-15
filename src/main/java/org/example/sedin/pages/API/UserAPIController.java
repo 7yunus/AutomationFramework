@@ -16,8 +16,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class UserAPIController extends APIConfig {
     private static final Logger LOG = LogManager.getLogger(UserAPIController.class);
@@ -30,15 +30,15 @@ public class UserAPIController extends APIConfig {
 
     public Response postTestUsingBuilderPattern() {
         UserData userData = userDataBuilder();
-       Response response =  given()
-               .spec(getRequestSpecification())
-               .body(userData)
+        Response response = given()
+                .spec(getRequestSpecification())
+                .body(userData)
                 .when()
                 .post("/api/users")
 
                 .then().
-               spec(getResponseSpecification())
-               .extract().response();
+                spec(getResponseSpecification())
+                .extract().response();
 //                .statusCode(201)
 //                .and()
 //                .assertThat()
@@ -93,7 +93,6 @@ public class UserAPIController extends APIConfig {
     }
 
     //5th option: Directly pass as string but not recommended
-
 
 
     public Response testPostRequests(final String name, final String job) {
