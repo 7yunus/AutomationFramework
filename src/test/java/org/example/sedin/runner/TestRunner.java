@@ -5,9 +5,9 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions
         (
-                features = "src/test/resources/features/API",
+                features = "src/test/resources/features",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-                tags = "@APITests",
+                tags = "@Regression",
                 monochrome = true,
                 plugin = {"pretty",
                         "json:target/cucumber.json",

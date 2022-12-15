@@ -1,4 +1,4 @@
-@UITest
+@UITest @Regression
 Feature: Checkout and validate the product details whether user ordered the correct product
 
   Scenario: Verify the checkout process and details of ordered product

@@ -1,4 +1,4 @@
-@UITest
+@UITest @Regression
 Feature: To validate the error message in login page
 
   Scenario Outline: Validating error message for invalid login credentials

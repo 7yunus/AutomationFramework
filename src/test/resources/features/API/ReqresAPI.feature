@@ -1,4 +1,4 @@
-@APITests
+@APITests @Regression
 Feature: Reqres APIs validation
 
   Scenario: Verify create users POST API /api/users

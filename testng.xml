@@ -12,11 +12,11 @@
 <!--            </packages>-->
 <!--        </test>-->
 
-    <test name="APITests">
-        <classes>
-            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>
-        </classes>
-    </test>
+<!--    <test name="APITests">-->
+<!--        <classes>-->
+<!--            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
 </suite>
