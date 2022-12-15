@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import org.example.sedin.configuration.APIConfig;
+import org.example.sedin.data.reqres.AuthenticationToken;
 import org.example.sedin.model.CreateUsersResponse;
 import org.example.sedin.model.RegisterUsersAuthResponse;
 import org.example.sedin.model.listUsersResponse.ListUsersResponse;
@@ -15,8 +16,6 @@ import org.example.sedin.pages.API.UserAPIController;
 import org.testng.Assert;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.hamcrest.Matchers.*;
 
@@ -86,6 +85,7 @@ public class UserAPISteps extends APIConfig {
     public void postRegisterUsersAPIIsCalledToRegisterTheUsersWithUsernameAndPassword(String username, String password) {
         registerUsersAuthResponse = gson.fromJson(authAPIController.
                 getAuthenticationToken(username, password).asString(), RegisterUsersAuthResponse.class);
+        new AuthenticationToken().setToken(registerUsersAuthResponse.getToken()); //auth token and can use it in other APIs
     }
 
     @Then("[POST] auth token should be returned in response")

@@ -2,7 +2,6 @@ package org.example.sedin.pages.API;
 
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
-import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,16 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class UserAPIController extends APIConfig {
     private static final Logger LOG = LogManager.getLogger(UserAPIController.class);
-//    RequestSpecification request = new RequestSpecBuilder().addHeader("Content-Type", "application/json")
-//            .setBaseUri("https://reqres.in/")
-//            .addHeader("Accept", "application/json")
-//            .log(LogDetail.URI)
-//            .build();
-
 
     public Response postTestUsingBuilderPattern() {
         UserData userData = userDataBuilder();
@@ -35,21 +27,9 @@ public class UserAPIController extends APIConfig {
                 .body(userData)
                 .when()
                 .post("/api/users")
-
                 .then().
                 spec(getResponseSpecification())
                 .extract().response();
-//                .statusCode(201)
-//                .and()
-//                .assertThat()
-//                .body("name", equalTo(userData.getName()))
-//                .body("job", equalTo(userData.getJob()));
-
-        //just for example purpose
-//        userDataBuilder2();
-//        userDataBuilder3();
-//        userDataBuilder4();
-
         return response;
     }
 
@@ -106,16 +86,6 @@ public class UserAPIController extends APIConfig {
                 .post("/api/users")
                 .then()
                 .spec(getResponseSpecification())
-//                .body("data.first_name[0]", equalTo("Michael"))
-//                .statusCode(201)
-//                .and()
-//                .assertThat()
-//                .body(
-//                        "name", equalTo(name),
-//                        "job", equalTo(job),
-//                        "id", notNullValue(),
-//                        "createdAt", notNullValue()
-//                )
                 .extract().response();
     }
 
@@ -128,16 +98,6 @@ public class UserAPIController extends APIConfig {
                 .get("/api/users")
                 .then()
                 .spec(getResponseSpecification())
-//                .statusCode(200)
-//                .and()
-//                .assertThat()
-//                .body("data.first_name[0]", equalTo("Michael"))
                 .extract().response();
-
-//        ListUsersResponse listUsersResponse = new Gson().fromJson(response, ListUsersResponse.class);
-//        LOG.info("avatar: " + listUsersResponse.getData().get(0).getAvatar());
-//        LOG.info("support text: " + listUsersResponse.getSupport().getText());
-//
-//        Assert.assertTrue(listUsersResponse.getData().get(0).getAvatar().contains("reqres"));
     }
 }

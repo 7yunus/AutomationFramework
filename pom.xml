@@ -42,6 +42,17 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
+        <dependency>
+
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -119,7 +130,11 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin-version}</version>
                     <configuration>
-                        <runOrder>alphabetical</runOrder>
+                        <!--                        <parallel>methods</parallel>-->
+                        <!--                        <threadCount>1</threadCount>-->
+                        <!--&lt;!&ndash;                     <useUnlimitedThreads>true</useUnlimitedThreads>&ndash;&gt;-->
+
+                        <!--                        <runOrder>alphabetical</runOrder>-->
                         <includes>
                             <include>APITestRunner.java</include>
                             <include>UITestRunner.java</include>
@@ -167,7 +182,7 @@
                             </goals>
                             <configuration>
                                 <projectName>sedin-test</projectName>
-                                <outputDirectory>${project.build.directory}</outputDirectory>
+                                <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
                                 <inputDirectory>${project.build.directory}</inputDirectory>
                                 <jsonFiles>
                                     <param>**/cucumber*.json</param>

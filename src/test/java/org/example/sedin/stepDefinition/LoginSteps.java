@@ -3,6 +3,7 @@ package org.example.sedin.stepDefinition;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.example.sedin.data.reqres.AuthenticationToken;
 import org.example.sedin.pages.LoginPage;
 import org.testng.Assert;
 
@@ -28,5 +29,10 @@ public class LoginSteps {
     public void errorMessageShouldBeDisplayedToTheUser(String errorMessage) {
         Assert.assertTrue(loginPage.getLoginErrorMessage().contains(errorMessage),
                 "Error message is not displayed for invalid login credentials");
+    }
+
+    @Then("auth token is shared is other flow")
+    public void authTokenIsSharedIsOtherFlow() {
+        System.out.println("from login class: " + new AuthenticationToken().getToken());
     }
 }

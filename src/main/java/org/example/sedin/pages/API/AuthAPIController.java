@@ -22,15 +22,6 @@ public class AuthAPIController extends APIConfig {
                 .post("/api/register")
                 .then()
                 .spec(getResponseSpecification())
-//                .assertThat()
-//                .statusCode(200)
-//                .log().body()
-//                .body("id", notNullValue())
-//                .and()
-//                .body("token", notNullValue())
-//                .and()
                 .extract().response();
-
-//        LOG.info(authenticationToken.getToken()); //take the token/auth from one request and pass to next request
     }
 }

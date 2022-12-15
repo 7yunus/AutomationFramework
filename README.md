@@ -57,4 +57,8 @@ Allure report path-> target/allure-results
 > src/test/java/org/example/sedin/apiTests/JsonSchemaValidateExampleTest.java
 > src/test/java/org/example/sedin/apiTests/ParseRequestBodyTest.java
 
+### Reporting:
+
+> Allure and Extent reports
+
 
