@@ -97,7 +97,7 @@ public class UserAPIController extends APIConfig {
 
     public Response testPostRequests(final String name, final String job) {
         InputStream createUsersJsonSchema = getClass().getClassLoader()
-                .getResourceAsStream("createusersjsonschema.json");
+                .getResourceAsStream("createUsersJsonSchema.json");
         final PostData postData = new PostData(name, job);
         return given().contentType(ContentType.JSON)
                 .spec(getRequestSpecification())
@@ -106,9 +106,7 @@ public class UserAPIController extends APIConfig {
                 .post("/api/users")
                 .then()
                 .spec(getResponseSpecification())
-                .assertThat()
 //                .body("data.first_name[0]", equalTo("Michael"))
-                .body(JsonSchemaValidator.matchesJsonSchema(createUsersJsonSchema))
 //                .statusCode(201)
 //                .and()
 //                .assertThat()
@@ -130,10 +128,10 @@ public class UserAPIController extends APIConfig {
                 .get("/api/users")
                 .then()
                 .spec(getResponseSpecification())
-                .statusCode(200)
-                .and()
-                .assertThat()
-                .body("data.first_name[0]", equalTo("Michael"))
+//                .statusCode(200)
+//                .and()
+//                .assertThat()
+//                .body("data.first_name[0]", equalTo("Michael"))
                 .extract().response();
 
 //        ListUsersResponse listUsersResponse = new Gson().fromJson(response, ListUsersResponse.class);

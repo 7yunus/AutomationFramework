@@ -10,11 +10,14 @@ Feature: Reqres API validation
     Then [POST] validate the json schema of the response "<schemaFile>"
     Examples:
       | name  | job | schemaFile                                    |
-      | Yunus | QA  | src/test/resources/createusersjsonschema.json |
+      | Yunus | QA  | src/test/resources/schemas/createUsersJsonsShema.json |
 
   Scenario: Verify get users list GET API /api/users?page=2
     When [GET] users API is called to get the details of users
     Then [GET] API should return response code 200
+      * users api response should not be empty
+      * users api response should contain the first name "Michael"
+      * users api response should match the schema "src/test/resources/schemas/getUsers.json"
 
   Scenario Outline: Verify register users POST API /api/register
     When [POST] register users API is called to register the users with username "<username>" and password "<password>"

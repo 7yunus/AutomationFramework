@@ -39,7 +39,7 @@ public class JsonSchemaValidateExampleTest {
     @Test(dataProvider = "postData")
     public void testPostRequests(final String name, final String job) {
         InputStream createUsersJsonSchema = getClass().getClassLoader()
-                .getResourceAsStream("createusersjsonschema.json");
+                .getResourceAsStream("schemas/createUsersJsonsShema.json");
         final PostData postData = new PostData(name, job);
         String response = given().contentType(ContentType.JSON)
                 .body(postData)

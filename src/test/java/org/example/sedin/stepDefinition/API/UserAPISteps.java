@@ -15,6 +15,10 @@ import org.example.sedin.pages.API.UserAPIController;
 import org.testng.Assert;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.hamcrest.Matchers.*;
 
 public class UserAPISteps extends APIConfig {
     Response response;
@@ -53,13 +57,30 @@ public class UserAPISteps extends APIConfig {
 
     @When("[GET] users API is called to get the details of users")
     public void getUsersAPIIsCalledToGetTheDetailsOfUsers() {
-        listUsersResponse = gson.fromJson(userApiController.getRequestTestwithRestAssuredConfig().asString(), ListUsersResponse.class);
+        response = userApiController.getRequestTestwithRestAssuredConfig();
     }
 
     @Then("[GET] API should return response code {int}")
-    public void getAPIShouldReturnResponseCode(int arg0) {
-        //        Assert.assertNotNull(listUsersResponse.getData().get(0).getAvatar());
+    public void getAPIShouldReturnResponseCode(int statusCode) {
+        response.then().statusCode(statusCode);
     }
+
+    @Then("users api response should match the schema {string}")
+    public void usersApiResponseShouldMatchTheSchema(String schemaFile) {
+        response.then().body(JsonSchemaValidator
+                .matchesJsonSchema(new File(schemaFile)));
+    }
+
+    @Then("users api response should contain the first name {string}")
+    public void usersApiResponseShouldContainTheFirstName(String firstName) {
+        response.then().assertThat().body("data.first_name[0]", equalTo(firstName));
+    }
+
+    @Then("users api response should not be empty")
+    public void usersApiResponseShouldNotBeEmpty() {
+        response.then().body("$", is(not(empty())));
+    }
+
 
     @When("[POST] register users API is called to register the users with username {string} and password {string}")
     public void postRegisterUsersAPIIsCalledToRegisterTheUsersWithUsernameAndPassword(String username, String password) {
@@ -71,7 +92,6 @@ public class UserAPISteps extends APIConfig {
     public void postAuthTokenShouldBeReturnedInResponse() {
         Assert.assertNotNull(registerUsersAuthResponse.getToken());
     }
-
 
     @When("the API request is sent")
     public void theAPIRequestIsSent() {
@@ -88,27 +108,5 @@ public class UserAPISteps extends APIConfig {
 //        createUsersResponse = gson.fromJson(userApiController.testPostRequests(name,job).asString(), CreateUsersResponse.class);
         response = userApiController.testPostRequests(name, job);
     }
-
-
-//
-//    @Then("validate the json schema of the response {string}")
-//    public void validateTheJsonSchemaOfTheResponse(String schemaFile) {
-//        response.then().body(JsonSchemaValidator
-//                .matchesJsonSchema(new File(schemaFile)));
-//    }
-//
-//
-//    @Then("GET response code should be {int}")
-//    public void getResponseCodeShouldBe(int arg0) {
-////        Assert.assertNotNull(listUsersResponse.getData().get(0).getAvatar());
-//    }
-//
-//    @When("the Auth API request is sent")
-//    public void theAuthAPIRequestIsSent() {
-//        registerUsersAuthResponse = gson.fromJson(authAPIController.getAuthenticationToken().asString(), RegisterUsersAuthResponse.class);
-//        Assert.assertNotNull(registerUsersAuthResponse.getToken());
-//
-//    }
-
 
 }
