@@ -4,17 +4,18 @@ Feature: Parse request
   @API1
   Scenario: Parse request body
     Given the API request data is set
-    When the API request is sent
+    When [POST] create users API is called to create users
+    Then [POST] API should return response code 200
     Then response code should be 200
 
     @API2
   Scenario Outline: Json schema validation
     Given the API request data is set
     When the API request is sent with name "<name>" and job "<job>"
-    Then validate the json schema of the response
+    Then validate the json schema of the response "<schemaFile>"
     Examples:
-    |name|job|
-    |  Yunus  |  QA |
+    |name|job| schemaFile|
+    |  Yunus  |  QA |src/test/resources/createusersjsonschema.json|
 
       @API3
   Scenario: GET API

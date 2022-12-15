@@ -105,7 +105,7 @@ public class UserAPIController extends APIConfig {
                 .then()
                 .spec(getResponseSpecification())
                 .assertThat()
-                .body("data.first_name[0]", equalTo("Michael"))
+//                .body("data.first_name[0]", equalTo("Michael"))
                 .body(JsonSchemaValidator.matchesJsonSchema(createUsersJsonSchema))
 //                .statusCode(201)
 //                .and()
