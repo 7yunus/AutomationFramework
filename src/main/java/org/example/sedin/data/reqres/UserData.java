@@ -9,8 +9,6 @@ import lombok.Setter;
 @Builder
 public class UserData {
 
-    public String username;
-    public String password;
     public String name;
     public String job;
 }

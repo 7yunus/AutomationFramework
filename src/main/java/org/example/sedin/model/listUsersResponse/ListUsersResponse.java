@@ -1,73 +1,86 @@
 package org.example.sedin.model.listUsersResponse;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
-public class ListUsersResponse {
-    private int perPage;
-    private int total;
-    private List<DataItem> data;
-    private int page;
-    private int totalPages;
-    private Support support;
+public class ListUsersResponse{
 
-    public int getPerPage() {
-        return perPage;
-    }
+	@SerializedName("per_page")
+	private int perPage;
 
-    public void setPerPage(int perPage) {
-        this.perPage = perPage;
-    }
+	@SerializedName("total")
+	private int total;
 
-    public int getTotal() {
-        return total;
-    }
+	@SerializedName("data")
+	private List<DataItem> data;
 
-    public void setTotal(int total) {
-        this.total = total;
-    }
+	@SerializedName("page")
+	private int page;
 
-    public List<DataItem> getData() {
-        return data;
-    }
+	@SerializedName("total_pages")
+	private int totalPages;
 
-    public void setData(List<DataItem> data) {
-        this.data = data;
-    }
+	@SerializedName("support")
+	private Support support;
 
-    public int getPage() {
-        return page;
-    }
+	public void setPerPage(int perPage){
+		this.perPage = perPage;
+	}
 
-    public void setPage(int page) {
-        this.page = page;
-    }
+	public int getPerPage(){
+		return perPage;
+	}
 
-    public int getTotalPages() {
-        return totalPages;
-    }
+	public void setTotal(int total){
+		this.total = total;
+	}
 
-    public void setTotalPages(int totalPages) {
-        this.totalPages = totalPages;
-    }
+	public int getTotal(){
+		return total;
+	}
 
-    public Support getSupport() {
-        return support;
-    }
+	public void setData(List<DataItem> data){
+		this.data = data;
+	}
 
-    public void setSupport(Support support) {
-        this.support = support;
-    }
+	public List<DataItem> getData(){
+		return data;
+	}
 
-    @Override
-    public String toString() {
-        return
-                "ListUsersResponse{" +
-                        "per_page = '" + perPage + '\'' +
-                        ",total = '" + total + '\'' +
-                        ",data = '" + data + '\'' +
-                        ",page = '" + page + '\'' +
-                        ",total_pages = '" + totalPages + '\'' +
-                        ",support = '" + support + '\'' +
-                        "}";
-    }
+	public void setPage(int page){
+		this.page = page;
+	}
+
+	public int getPage(){
+		return page;
+	}
+
+	public void setTotalPages(int totalPages){
+		this.totalPages = totalPages;
+	}
+
+	public int getTotalPages(){
+		return totalPages;
+	}
+
+	public void setSupport(Support support){
+		this.support = support;
+	}
+
+	public Support getSupport(){
+		return support;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"ListUsersResponse{" + 
+			"per_page = '" + perPage + '\'' + 
+			",total = '" + total + '\'' + 
+			",data = '" + data + '\'' + 
+			",page = '" + page + '\'' + 
+			",total_pages = '" + totalPages + '\'' + 
+			",support = '" + support + '\'' + 
+			"}";
+		}
 }

@@ -1,31 +1,37 @@
 package org.example.sedin.model.listUsersResponse;
 
-public class Support {
-    private String text;
-    private String url;
+import com.google.gson.annotations.SerializedName;
 
-    public String getText() {
-        return text;
-    }
+public class Support{
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	@SerializedName("text")
+	private String text;
 
-    public String getUrl() {
-        return url;
-    }
+	@SerializedName("url")
+	private String url;
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public void setText(String text){
+		this.text = text;
+	}
 
-    @Override
-    public String toString() {
-        return
-                "Support{" +
-                        "text = '" + text + '\'' +
-                        ",url = '" + url + '\'' +
-                        "}";
-    }
+	public String getText(){
+		return text;
+	}
+
+	public void setUrl(String url){
+		this.url = url;
+	}
+
+	public String getUrl(){
+		return url;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"Support{" + 
+			"text = '" + text + '\'' + 
+			",url = '" + url + '\'' + 
+			"}";
+		}
 }

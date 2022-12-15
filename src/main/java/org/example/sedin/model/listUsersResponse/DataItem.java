@@ -1,61 +1,73 @@
 package org.example.sedin.model.listUsersResponse;
 
-public class DataItem {
-    private String lastName;
-    private int id;
-    private String avatar;
-    private String firstName;
-    private String email;
+import com.google.gson.annotations.SerializedName;
 
-    public String getLastName() {
-        return lastName;
-    }
+public class DataItem{
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	@SerializedName("last_name")
+	private String lastName;
 
-    public int getId() {
-        return id;
-    }
+	@SerializedName("id")
+	private int id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	@SerializedName("avatar")
+	private String avatar;
 
-    public String getAvatar() {
-        return avatar;
-    }
+	@SerializedName("first_name")
+	private String firstName;
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+	@SerializedName("email")
+	private String email;
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public void setLastName(String lastName){
+		this.lastName = lastName;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public String getLastName(){
+		return lastName;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setId(int id){
+		this.id = id;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public int getId(){
+		return id;
+	}
 
-    @Override
-    public String toString() {
-        return
-                "DataItem{" +
-                        "last_name = '" + lastName + '\'' +
-                        ",id = '" + id + '\'' +
-                        ",avatar = '" + avatar + '\'' +
-                        ",first_name = '" + firstName + '\'' +
-                        ",email = '" + email + '\'' +
-                        "}";
-    }
+	public void setAvatar(String avatar){
+		this.avatar = avatar;
+	}
+
+	public String getAvatar(){
+		return avatar;
+	}
+
+	public void setFirstName(String firstName){
+		this.firstName = firstName;
+	}
+
+	public String getFirstName(){
+		return firstName;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"DataItem{" + 
+			"last_name = '" + lastName + '\'' + 
+			",id = '" + id + '\'' + 
+			",avatar = '" + avatar + '\'' + 
+			",first_name = '" + firstName + '\'' + 
+			",email = '" + email + '\'' + 
+			"}";
+		}
 }

@@ -5,12 +5,13 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions
         (
-                features = "src/test/resources/features",
+                features = "src/test/resources/features/API",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-                tags = "@UITest",
+                tags = "@APi2",
                 monochrome = true,
                 plugin = {"pretty",
-                        "json:target/cucumber.json"
+                        "json:target/cucumber.json",
+                        "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
                 }
         )
 public class TestRunner extends AbstractTestNGCucumberTests {

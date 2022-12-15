@@ -19,7 +19,7 @@ public class Hooks extends DriverSetup {
 
     @Before
     public void setUp() throws IOException {
-        initialisation();
+//        initialisation();
     }
 
     @After
@@ -29,10 +29,9 @@ public class Hooks extends DriverSetup {
                 Allure.attachment("Failed screenshot: " + scenario.getName(), new ByteArrayInputStream(((TakesScreenshot) driver)
                         .getScreenshotAs(OutputType.BYTES)));
             } catch (Exception e) {
-                e.printStackTrace();
             }
         }
-        LOG.info("Quit browser!");
-        driver.quit();
+//        LOG.info("Quit browser!");
+//        driver.quit();
     }
 }
