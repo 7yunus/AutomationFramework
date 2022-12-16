@@ -1,4 +1,4 @@
-package org.example.sedin.apiTests.configuration;
+package org.example.sedin.testNGApproach.configuration;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

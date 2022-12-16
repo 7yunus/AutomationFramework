@@ -1,11 +1,11 @@
-package org.example.sedin.apiTests;
+package org.example.sedin.testNGApproach;
 
 import com.github.javafaker.Faker;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.sedin.apiTests.configuration.APIConfig;
+import org.example.sedin.testNGApproach.configuration.APIConfig;
 import org.example.sedin.data.reqres.UserData;
 import org.example.sedin.model.CreateUserRequest;
 import org.json.JSONObject;

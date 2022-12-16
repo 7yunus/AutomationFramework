@@ -1,4 +1,4 @@
-package org.example.sedin.apiTests;
+package org.example.sedin.testNGApproach;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

@@ -42,17 +42,6 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-        <dependency>
-
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit-platform-engine</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -130,11 +119,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin-version}</version>
                     <configuration>
-                        <!--                        <parallel>methods</parallel>-->
-                        <!--                        <threadCount>1</threadCount>-->
-                        <!--&lt;!&ndash;                     <useUnlimitedThreads>true</useUnlimitedThreads>&ndash;&gt;-->
-
-                        <!--                        <runOrder>alphabetical</runOrder>-->
+                        <runOrder>alphabetical</runOrder>
                         <includes>
                             <include>APITestRunner.java</include>
                             <include>UITestRunner.java</include>

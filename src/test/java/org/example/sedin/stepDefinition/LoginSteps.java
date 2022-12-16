@@ -33,6 +33,6 @@ public class LoginSteps {
 
     @Then("auth token is shared is other flow")
     public void authTokenIsSharedIsOtherFlow() {
-        System.out.println("from login class: " + new AuthenticationToken().getToken());
+        System.out.println("Fetch token in login class: " + new AuthenticationToken().getToken());
     }
 }

@@ -8,13 +8,13 @@
     </test>
     <!--        <test name="APITests">-->
     <!--            <packages>-->
-    <!--                <package name="org.example.sedin.apiTests"/>-->
+    <!--                <package name="org.example.sedin.testNGApproach"/>-->
     <!--            </packages>-->
     <!--        </test>-->
 
     <!--    <test name="APITests">-->
     <!--        <classes>-->
-    <!--            <class name="org.example.sedin.apiTests.AuthTokenPassingExampleTest"/>-->
+    <!--            <class name="org.example.sedin.testNGApproach.AuthTokenPassingExampleTest"/>-->
     <!--        </classes>-->
     <!--    </test>-->
 
