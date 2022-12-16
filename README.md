@@ -4,7 +4,7 @@ Created by - Mohammed Yunus F
 
 **Prerequisites**
 
-1. Java 8/11 should be present and environment variable should be set in the local system.
+1. Java 11 or above should be present and environment variable should be set in the local system.
 2. Maven should be present and environment variable should be set in the local system.
 3. Browsers(Chrome or Firefox) should be present in the local system.
 
