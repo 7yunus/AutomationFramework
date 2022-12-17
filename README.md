@@ -1,6 +1,4 @@
-# Sedin Assessment
-
-Created by - Mohammed Yunus F
+# Cucumber automtion framework for UI and API
 
 **Prerequisites**
 
@@ -61,4 +59,5 @@ Allure report path-> target/allure-results
 
 > Allure and Extent reports
 
+### Author: Mohammed Yunus F
 
