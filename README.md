@@ -1,4 +1,4 @@
-# Cucumber automtion framework for UI and API
+# Cucumber automation framework for UI and API
 
 **Prerequisites**
 
