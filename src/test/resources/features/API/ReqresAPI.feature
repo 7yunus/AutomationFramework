@@ -1,9 +1,10 @@
-@APITests @APIRegression
+@APITests @APIRegression @BeforeAPI @AfterAPI
 Feature: Reqres API validation
 
+  @q
   Scenario: Verify create users POST API /api/users
     When [POST] create users API is called to create users
-    Then [POST] API should return response code 201
+    Then [POST] API should return response code 202
 
   Scenario Outline: Json schema validation check for API /api/users
     When [POST] create users API is called to create users with request name "<name>" and job "<job>"
@@ -22,7 +23,7 @@ Feature: Reqres API validation
   Scenario Outline: Verify register users POST API /api/register
     When [POST] register users API is called to register the users with username "<username>" and password "<password>"
     Then [POST] auth token should be returned in response
-#    Then auth token is shared is other flow
+    Then auth token is shared is other flow
     Examples:
       | username           | password |
       | eve.holt@reqres.in | pistol   |

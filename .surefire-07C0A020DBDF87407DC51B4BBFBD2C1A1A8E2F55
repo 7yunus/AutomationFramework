@@ -1,0 +1,2 @@
+0,0,org.example.sedin.runner.FailedTestRunner,setUpClass[org.testng.TestRunner@48aca48b](0)
+0,0,org.example.sedin.runner.api.CucumberRunnerAPI,runScenario["Verify create users POST API /api/users", "Reqres API validation"](1)

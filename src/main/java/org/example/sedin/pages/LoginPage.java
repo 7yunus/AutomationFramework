@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import static org.example.sedin.configuration.DriverSetup.driver;
 
 public class LoginPage {
-
     @FindBy(xpath = "//h3[@data-test='error']")
     public WebElement loginErrorMessage;
 

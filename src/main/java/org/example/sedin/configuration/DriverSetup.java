@@ -45,3 +45,20 @@ public class DriverSetup {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    WebDriverWait wait = new WebDriverWait(driver,30);
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));

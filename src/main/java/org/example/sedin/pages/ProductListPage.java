@@ -46,19 +46,19 @@ public class ProductListPage {
     }
 
     public boolean getItemPrices() {
-        List<WebElement> webElement = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
-        int size = webElement.size();
+        List<WebElement> productPrices = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
+        int size = productPrices.size();
         for (int i = 1; i < size; i++) {
-            WebElement webElement1 = driver.findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
-            Double listingPrice = Double.parseDouble(webElement1.getText().replace("$", ""));
-            driver.findElement(By.xpath
-                    ("(//div[contains(@class,'inventory_item_price') and" +
-                            " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
-            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
-            LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
-            if (!listingPrice.equals(detailPrice)) {
-                return false;
-            }
+            WebElement productPrice = driver.findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
+                Double listingPrice = Double.parseDouble(productPrice.getText().replace("$", "")); //$29.99
+                driver.findElement(By.xpath
+                        ("(//div[contains(@class,'inventory_item_price') and" +
+                                " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
+                Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
+                LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
+                if (!listingPrice.equals(detailPrice)) {
+                    return false;
+                }
             driver.navigate().back();
         }
         return true;

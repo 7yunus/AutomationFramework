@@ -42,6 +42,18 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -109,6 +121,8 @@
             <artifactId>extentreports-cucumber7-adapter</artifactId>
             <version>1.9.2</version>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -121,8 +135,8 @@
                     <configuration>
                         <runOrder>alphabetical</runOrder>
                         <includes>
-                            <include>APITestRunner.java</include>
-                            <include>UITestRunner.java</include>
+                            <include>CucumberRunner.java</include>
+                            <include>FailedTestRunner.java</include>
                         </includes>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

@@ -45,6 +45,10 @@ public class UserAPISteps extends APIConfig {
 
     @When("[POST] create users API is called to create users with request name {string} and job {string}")
     public void postCreateUsersAPIIsCalledToCreateUsersWithRequestNameAndJob(String name, String job) {
+//        listUsersResponse = gson.fromJson(userApiController.
+//                testPostRequests(name, job).asString(), ListUsersResponse.class);
+//        listUsersResponse.getData().get(0).getAvatar();
+
         response = userApiController.testPostRequests(name, job);
     }
 

@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Sedin Test Suite">
-    <test name="UITest">
-        <classes>
-            <class name="org.example.sedin.runner.UITestRunner"/>
-        </classes>
-    </test>
-    <!--        <test name="APITests">-->
-    <!--            <packages>-->
-    <!--                <package name="org.example.sedin.testNGApproach"/>-->
-    <!--            </packages>-->
-    <!--        </test>-->
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
+<!--<suite name="Sedin Test Suite">-->
+<!--    <test name="UITest">-->
+<!--        <classes>-->
+<!--            <class name="org.example.sedin.runner.ui.CucumberRunnerUI"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    &lt;!&ndash;        <test name="APITests">&ndash;&gt;-->
+<!--    &lt;!&ndash;            <packages>&ndash;&gt;-->
+<!--    &lt;!&ndash;                <package name="org.example.sedin.testNGApproach"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;            </packages>&ndash;&gt;-->
+<!--    &lt;!&ndash;        </test>&ndash;&gt;-->
 
-    <!--    <test name="APITests">-->
-    <!--        <classes>-->
-    <!--            <class name="org.example.sedin.testNGApproach.AuthTokenPassingExampleTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+<!--    &lt;!&ndash;    <test name="APITests">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <classes>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <class name="org.example.sedin.testNGApproach.AuthTokenPassingExampleTest"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;        </classes>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </test>&ndash;&gt;-->
 
 
-</suite>
+<!--</suite>-->
