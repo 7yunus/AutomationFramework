@@ -1,10 +1,9 @@
 @APITests @APIRegression @BeforeAPI @AfterAPI
 Feature: Reqres API validation
 
-  @q
   Scenario: Verify create users POST API /api/users
     When [POST] create users API is called to create users
-    Then [POST] API should return response code 202
+    Then [POST] API should return response code 201
 
   Scenario Outline: Json schema validation check for API /api/users
     When [POST] create users API is called to create users with request name "<name>" and job "<job>"

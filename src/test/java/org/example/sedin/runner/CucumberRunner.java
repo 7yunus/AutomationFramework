@@ -10,10 +10,7 @@ import io.cucumber.testng.CucumberOptions;
                 features = "src/test/resources/features",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
 //                tags = "@APIRegression",
-//                tags ="@APIRegression and @UIRegression",
-                tags ="@q or @q1",
-
-
+                tags ="@APIRegression or @UIRegression",
                 monochrome = true,
                 plugin = {"pretty",
                         "json:target/cucumber.json",
