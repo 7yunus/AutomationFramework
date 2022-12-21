@@ -13,9 +13,9 @@ import io.cucumber.testng.CucumberOptions;
                 tags ="@APIRegression or @UIRegression",
                 monochrome = true,
                 plugin = {"pretty",
-                        "json:target/cucumber.json",
-                        "rerun:target/rerun.txt",
-                        "html:target/cucumber-reports.html",
+                        "json:target/cucumber-report/cucumber.json",
+                        "rerun:target/cucumber-report/rerun.txt",
+                        "html:target/cucumber-report/cucumber-reports.html",
                         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 }

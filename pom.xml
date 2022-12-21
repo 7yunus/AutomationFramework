@@ -14,8 +14,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
         <selenium.version>4.6.0</selenium.version>
         <cucumber.version>7.8.1</cucumber.version>
@@ -171,7 +171,7 @@
                     <!-- https://repo.maven.apache.org/maven2/net/masterthought/cucumber-reporting/ -->
                     <groupId>net.masterthought</groupId>
                     <artifactId>maven-cucumber-reporting</artifactId>
-                    <version>5.7.0</version>
+                    <version>5.7.4</version>
                     <executions>
                         <execution>
                             <id>execution</id>
@@ -181,11 +181,14 @@
                             </goals>
                             <configuration>
                                 <projectName>sedin-test</projectName>
-                                <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                                <inputDirectory>${project.build.directory}</inputDirectory>
+                                <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
                                 <jsonFiles>
-                                    <param>**/cucumber*.json</param>
+                                    <jsonFile>**/*.json</jsonFile>
                                 </jsonFiles>
+                                <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+                                <mergeFeaturesById>false</mergeFeaturesById>
+                                <checkBuildResult>false</checkBuildResult>
+                                <skipEmptyJSONFiles>true</skipEmptyJSONFiles>
                             </configuration>
                         </execution>
                     </executions>
