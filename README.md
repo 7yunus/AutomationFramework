@@ -22,15 +22,21 @@
 * Feature file: `src/test/resources/features`
 * Step Definitions: `src/test/java/org/example/sedin/stepDefinition`
 * Page classes: `src/main/java/org/example/sedin/pages`
-* Cucumber runner: `src/test/java/org/example/sedin/runner`
-* Failed runner: `src/test/java/org/example/sedin/runner/FailedTestRunner.java`
-* Hooks: `src/test/java/org/example/sedin/hooks`
 * Web driver setup: `src/main/java/org/example/sedin/configuration`
 * Utils: `src/main/java/org/example/sedin/utilities`
 
 #### API Tests
 
 * Tests: `src/test/java/org/example/sedin/apiTests`
+
+#### Cucumber Runners
+* Cucumber runner: `src/test/java/org/example/sedin/runner`
+* Failed runner: `src/test/java/org/example/sedin/runner/FailedTestRunner.java`
+
+#### Hooks
+* Hooks: `src/test/java/org/example/sedin/hooks`
+
+
 
 ### Maven Project Execution using following command:
 
