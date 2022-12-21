@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
                 plugin = {"pretty",
                         "json:target/cucumber.json",
                         "rerun:target/rerun.txt",
-//                        "html:target/cucumber-reports.html",
+                        "html:target/cucumber-reports.html",
                         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 }

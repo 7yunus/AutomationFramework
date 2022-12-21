@@ -1,4 +1,4 @@
-@APITests @APIRegression @BeforeAPI @AfterAPI
+@APIRegression @BeforeAPI @AfterAPI
 Feature: Reqres API validation
 
   Scenario: Verify create users POST API /api/users

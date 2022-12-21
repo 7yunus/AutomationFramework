@@ -1,13 +1,10 @@
 package org.example.sedin.utilities;
 
-import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.sql.*;
 
 public class DatabaseUtil {
 
-    @Test
     public void TestNewDB() throws IOException {
         ResultSet rs = null;
         Statement statement = null;
