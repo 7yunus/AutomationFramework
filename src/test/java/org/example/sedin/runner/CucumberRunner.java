@@ -9,13 +9,13 @@ import io.cucumber.testng.CucumberOptions;
         (
                 features = "src/test/resources/features",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-//                tags = "@APIRegression",
-                tags ="@APIRegression or @UIRegression",
+                tags = "@APIRegression",
+//                tags ="@APIRegression or @UIRegression",
                 monochrome = true,
                 plugin = {"pretty",
                         "json:target/cucumber.json",
                         "rerun:target/rerun.txt",
-//                        "html:target/cucumber-reports.html",
+                        "html:target/cucumber-reports.html",
                         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                 }
