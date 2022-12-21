@@ -23,6 +23,7 @@
 * Step Definitions: `src/test/java/org/example/sedin/stepDefinition`
 * Page classes: `src/main/java/org/example/sedin/pages`
 * Cucumber runner: `src/test/java/org/example/sedin/runner`
+* Failed runner: `src/test/java/org/example/sedin/runner/FailedTestRunner.java`
 * Hooks: `src/test/java/org/example/sedin/hooks`
 * Web driver setup: `src/main/java/org/example/sedin/configuration`
 * Utils: `src/main/java/org/example/sedin/utilities`
@@ -35,9 +36,14 @@
 
 To execute->`mvn clean test`
 
+### Jenkins file:
+
+JenkinsFile
+
+
 ### Report generation:
 
-Run Command after test execution->`allure serve target/allure-results
+Run Command after test execution-> `allure serve target/allure-results
 `  
 Allure report path-> target/allure-results
 
@@ -57,7 +63,7 @@ Allure report path-> target/allure-results
 
 ### Reporting:
 
-> Allure and Extent reports
+> Allure, Cucumber and Extent reports
 
 ### Author: Mohammed Yunus F
 
