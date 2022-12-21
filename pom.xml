@@ -181,11 +181,14 @@
                             </goals>
                             <configuration>
                                 <projectName>sedin-test</projectName>
-                                <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                                <inputDirectory>${project.build.directory}</inputDirectory>
+                                <inputDirectory>${project.build.directory}/cucumber-report</inputDirectory>
                                 <jsonFiles>
-                                    <param>**/cucumber*.json</param>
+                                    <jsonFile>**/*.json</jsonFile>
                                 </jsonFiles>
+                                <mergeFeaturesWithRetest>true</mergeFeaturesWithRetest>
+                                <mergeFeaturesById>true</mergeFeaturesById>
+                                <checkBuildResult>false</checkBuildResult>
+                                <skipEmptyJSONFiles>true</skipEmptyJSONFiles>
                             </configuration>
                         </execution>
                     </executions>
