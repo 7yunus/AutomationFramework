@@ -115,30 +115,6 @@ public class DriverManager {
         LOG.info("Firefox Driver created successfully!");
     }
 
-    private static void setupFirefoxInLambdaTest() {
-        final FirefoxOptions browserOptions = new FirefoxOptions();
-        browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("107.0");
-        final HashMap<String, Object> ltOptions = new HashMap<>();
-        ltOptions.put("username", LT_USERNAME);
-        ltOptions.put("accessKey", LT_ACCESS_TOKEN);
-        ltOptions.put("resolution", "2560x1440");
-        ltOptions.put("selenium_version", "4.0.0");
-        ltOptions.put("build", "LambdaTest Playground Build");
-        ltOptions.put("name", "LambdaTest Playground Tests");
-        ltOptions.put("w3c", true);
-        ltOptions.put("plugin", "java-testNG");
-        browserOptions.setCapability("LT:Options", ltOptions);
-        try {
-            setDriver(
-                    new RemoteWebDriver(new URL(format("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
-                            browserOptions));
-        } catch (final MalformedURLException e) {
-            LOG.error("Error setting up firefox  browser in LambdaTest", e);
-        }
-
-    }
-
     private static void setupRemoteChrome() {
         try {
             LOG.info("Setting up Remote Chrome Driver....");

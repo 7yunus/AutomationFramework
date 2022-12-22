@@ -23,7 +23,7 @@ import io.cucumber.testng.CucumberOptions;
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
-    //Enable below code for parallel run
+    //Uncomment below code for parallel run
     //https://cucumber.io/docs/guides/parallel-execution/?lang=java
 
 
