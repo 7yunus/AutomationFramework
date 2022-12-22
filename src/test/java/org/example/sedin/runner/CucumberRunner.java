@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         (
                 features = "src/test/resources/features",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-                tags = "@UIRegression",
-//                tags ="@APIRegression or @UIRegression",
+//                tags = "@UIRegression",
+                tags ="@APIRegression or @UIRegression",
                 monochrome = true,
                 plugin = {"pretty",
 //                        "timeline:<report folder>", //For a visual representation of threads, add the timeline report in parallel run

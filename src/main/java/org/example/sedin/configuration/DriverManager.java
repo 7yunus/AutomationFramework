@@ -12,18 +12,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.HashMap;
 
-import static java.text.MessageFormat.format;
 import static org.openqa.selenium.remote.Browser.CHROME;
 
 public class DriverManager {
     public static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
-    private static final String GRID_URL = "@hub.lambdatest.com/wd/hub";
+    private static final String GRID_URL = "/wd/hub";
     private static final String HUB_URL = "http://localhost:4444/wd/hub";
     private static final Logger LOG = LogManager.getLogger("DriverManager.class");
-    private static final String LT_ACCESS_TOKEN = System.getProperty("LT_ACCESS_KEY");
-    private static final String LT_USERNAME = System.getProperty("LT_USERNAME");
 
     private DriverManager() {
     }
