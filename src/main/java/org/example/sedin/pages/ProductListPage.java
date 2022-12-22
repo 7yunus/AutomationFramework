@@ -10,12 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static org.example.sedin.configuration.DriverSetup.driver;
+import static org.example.sedin.configuration.DriverManager.DRIVER;
+import static org.example.sedin.configuration.DriverManager.getDriver;
+
 
 public class ProductListPage {
     private static final Logger LOG = LogManager.getLogger(ProductListPage.class);
     Data data = new Data();
-
     @FindBy(css = ".inventory_item_name")
     List<WebElement> itemNames;
     @FindBy(xpath = "//div[@class='pricebar']/div")
@@ -30,9 +31,8 @@ public class ProductListPage {
     WebElement shoppingCartIcon;
     @FindBy(css = ".inventory_details_price")
     WebElement productDetailPrice;
-
     public ProductListPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DRIVER.get(), this);
     }
 
     public boolean isItemNamePresent(String expectedItemName) {
@@ -46,20 +46,20 @@ public class ProductListPage {
     }
 
     public boolean getItemPrices() {
-        List<WebElement> productPrices = driver.findElements(By.xpath("//div[@class='pricebar']/div"));
+        List<WebElement> productPrices = getDriver().findElements(By.xpath("//div[@class='pricebar']/div"));
         int size = productPrices.size();
         for (int i = 1; i < size; i++) {
-            WebElement productPrice = driver.findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
-                Double listingPrice = Double.parseDouble(productPrice.getText().replace("$", "")); //$29.99
-                driver.findElement(By.xpath
-                        ("(//div[contains(@class,'inventory_item_price') and" +
-                                " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
-                Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
-                LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
-                if (!listingPrice.equals(detailPrice)) {
-                    return false;
-                }
-            driver.navigate().back();
+            WebElement productPrice = getDriver().findElement(By.xpath("(//div[@class='pricebar']/div)[" + i + "]"));
+            Double listingPrice = Double.parseDouble(productPrice.getText().replace("$", "")); //$29.99
+            getDriver().findElement(By.xpath
+                    ("(//div[contains(@class,'inventory_item_price') and" +
+                            " text()='" + listingPrice + "']//preceding::a/img)[" + i + "]")).click();
+            Double detailPrice = Double.parseDouble(productDetailPrice.getText().replace("$", ""));
+            LOG.info("Listing Price:" + listingPrice + " Details Price: " + detailPrice);
+            if (!listingPrice.equals(detailPrice)) {
+                return false;
+            }
+            getDriver().navigate().back();
         }
         return true;
     }

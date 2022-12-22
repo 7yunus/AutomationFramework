@@ -5,18 +5,19 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.sedin.configuration.DriverSetup;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
+import static org.example.sedin.configuration.DriverManager.*;
 
-public class Hooks extends DriverSetup {
+public class Hooks {
 
-    private static final Logger LOG = LogManager.getLogger(DriverSetup.class);
+    private static final Logger LOG = LogManager.getLogger(Hooks.class);
+    private WebDriver driver;
 
     @Before("@BeforeAPI")
-    public void before() throws IOException {
+    public void before() {
     }
 
     @After("@AfterAPI")
@@ -24,23 +25,19 @@ public class Hooks extends DriverSetup {
     }
 
     @Before("@BeforeUI")
-    public void driverSetUp() throws IOException {
-        driverInitialisation();
+    public void driverSetUp() {
+        createDriver();
     }
 
     @After("@AfterUI")
     public void takeScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
             try {
-                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", scenario.getName());
             } catch (Exception e) {
             }
         }
-        LOG.info("Quit browser!");
-        driver.quit();
+        quitDriver();
     }
-
-
-
 }

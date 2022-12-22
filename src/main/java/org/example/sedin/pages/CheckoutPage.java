@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 
-import static org.example.sedin.configuration.DriverSetup.driver;
+import static org.example.sedin.configuration.DriverManager.DRIVER;
+
 
 public class CheckoutPage {
     private static final Logger LOG = LogManager.getLogger(CheckoutPage.class);
-
     @FindBy(xpath = "//button[@id='checkout']")
     WebElement checkoutButton;
     @FindBy(xpath = "//input[@id='first-name']")
@@ -31,9 +31,8 @@ public class CheckoutPage {
     WebElement finishButton;
     @FindBy(xpath = "//h2[@class='complete-header']")
     WebElement thankYouMessageText;
-
     public CheckoutPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DRIVER.get(), this);
     }
 
     public void clickOnCheckoutButton() {
