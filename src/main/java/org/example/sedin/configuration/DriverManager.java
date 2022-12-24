@@ -3,12 +3,14 @@ package org.example.sedin.configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.sedin.utilities.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -25,21 +27,25 @@ public class DriverManager {
     }
 
     public static void createDriver() {
-        String browser = "remote-chrome";
-        if (DRIVER.get() == null) {
-            switch (browser) {
-                case "firefox":
-                    setupFirefoxDriver();
-                    break;
-                case "remote-chrome":
-                    setupRemoteChrome ();
-                    break;
-                case "chrome":
-                default:
-                    setupChromeDriver();
-            }
-            setupBrowserTimeouts();
+        String browser = null;
+        try {
+            browser = PropertiesReader.getPropertiesFileValue("browser");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+//        String browser = "chrome";
+        switch (browser) {
+            case "firefox":
+                setupFirefoxDriver();
+                break;
+            case "remote-chrome":
+                setupRemoteChrome();
+                break;
+            case "chrome":
+            default:
+                setupChromeDriver();
+        }
+        setupBrowserTimeouts();
     }
 
     public static <D extends WebDriver> D getDriver() {
@@ -62,13 +68,13 @@ public class DriverManager {
         LOG.info("Setting Browser Timeouts....");
         getDriver().manage()
                 .timeouts()
-                .implicitlyWait(Duration.ofSeconds(3));
+                .implicitlyWait(Duration.ofSeconds(10));
         getDriver().manage()
                 .timeouts()
-                .pageLoadTimeout(Duration.ofSeconds(3));
+                .pageLoadTimeout(Duration.ofSeconds(10));
         getDriver().manage()
                 .timeouts()
-                .scriptTimeout(Duration.ofSeconds(3));
+                .scriptTimeout(Duration.ofSeconds(10));
     }
 
     private static void setupChromeDriver() {

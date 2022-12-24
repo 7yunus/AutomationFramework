@@ -159,6 +159,12 @@
                         <!--                        <parallel>methods</parallel>-->
                         <!--                        <threadCount>2</threadCount>-->
                         <!--                        <useUnlimitedThreads>false</useUnlimitedThreads>-->
+                        <properties>
+                            <property>
+                                <name>dataproviderthreadcount</name>
+                                <value>4</value>
+                            </property>
+                        </properties>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         </argLine>

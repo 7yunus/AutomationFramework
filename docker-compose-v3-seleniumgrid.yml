@@ -12,8 +12,8 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_INSTANCES=3
-      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_MAX_INSTANCES=5
+      - SE_NODE_MAX_SESSIONS=5
   #      - SE_NODE_SESSION_TIMEOUT=180
 
 #  SE_NODE_MAX_INSTANCES: This defines how many instances of same version of browser can run over the Remote System.
@@ -57,7 +57,7 @@ services:
 ### To start the grid
 # docker compose -f docker-compose-v3-seleniumgrid.yml up
 ### if we want to scale up the chrome service
-# docker compose -f docker-compose-v3-seleniumgrid.yml up --scale chrome=4
+# docker compose -f docker-compose-v3-seleniumgrid.yml up --scale chrome=5
 
 ### Once the grid is up and running, we can navigate to http://localhost:4444
 
