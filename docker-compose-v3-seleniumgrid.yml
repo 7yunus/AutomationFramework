@@ -54,6 +54,8 @@ services:
       - "4444:4444"
 
 
+### NOTES ###
+
 ### To start the grid
 # docker compose -f docker-compose-v3-seleniumgrid.yml up
 ### if we want to scale up the chrome service
@@ -80,6 +82,6 @@ services:
 ### For reference
 # https://medium.com/@iamfaisalkhatri/parallel-execution-of-tests-using-selenium-grid-4-with-docker-compose-2dc243f4fe8b
 
-
-#  docker compose -f docker-compose-v3-seleniumgrid.yml up --build && docker compose -f docker-compose-v3-seleniumgrid.yml restart selenium-hub
+# docker compose -f docker-compose-v3-seleniumgrid.yml up --build
+# docker compose -f docker-compose-v3-seleniumgrid.yml restart selenium-hub
 
