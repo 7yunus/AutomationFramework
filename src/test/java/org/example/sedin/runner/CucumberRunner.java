@@ -2,13 +2,14 @@ package org.example.sedin.runner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.DataProvider;
 
 @CucumberOptions
         (
                 features = "src/test/resources/features",
                 glue = {"org.example.sedin.stepDefinition", "org.example.sedin.hooks"},
-//                tags = "@UIRegression",
-                tags ="@APIRegression or @UIRegression",
+                tags = "@UIRegression",
+//                tags ="@APIRegression or @UIRegression",
                 monochrome = true,
                 plugin = {"pretty",
 //                        "timeline:<report folder>", //For a visual representation of threads, add the timeline report in parallel run
@@ -27,9 +28,9 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
     //https://cucumber.io/docs/guides/parallel-execution/?lang=java
 
 
-//    @Override
-//    @DataProvider(parallel = true)
-//    public Object[][] scenarios() {
-//        return super.scenarios();
-//    }
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 }

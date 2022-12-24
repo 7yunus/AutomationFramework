@@ -25,11 +25,14 @@ public class DriverManager {
     }
 
     public static void createDriver() {
-        String browser = "chrome";
+        String browser = "remote-chrome";
         if (DRIVER.get() == null) {
             switch (browser) {
                 case "firefox":
                     setupFirefoxDriver();
+                    break;
+                case "remote-chrome":
+                    setupRemoteChrome ();
                     break;
                 case "chrome":
                 default:
