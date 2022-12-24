@@ -1,6 +1,6 @@
-# To execute this docker-compose yml file use `docker-compose -f docker-compose-v3-seleniumgrid.yml up`
+# To execute this docker-compose yml file use `docker-compose -f seleniumgrid.yml up`
 # Add the `-d` flag at the end for detached execution
-# To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3-seleniumgrid.yml down`
+# To stop the execution, hit Ctrl+C, and then `docker-compose -f seleniumgrid.yml down`
 version: "3"
 services:
   chrome:
@@ -57,9 +57,9 @@ services:
 ### NOTES ###
 
 ### To start the grid
-# docker compose -f docker-compose-v3-seleniumgrid.yml up
+# docker compose -f seleniumgrid.yml up
 ### if we want to scale up the chrome service
-# docker compose -f docker-compose-v3-seleniumgrid.yml up --scale chrome=5
+# docker compose -f seleniumgrid.yml up --scale chrome=5
 
 ### Once the grid is up and running, we can navigate to http://localhost:4444
 
@@ -71,17 +71,17 @@ services:
 ### In Grid you can navigate to sessions and click on video option to see the run visually and enter "secret" as password if asked
 
 ### To restart the container, selenium-hub
-# docker compose -f docker-compose-v3-seleniumgrid.yml restart selenium-hub
+# docker compose -f seleniumgrid.yml restart selenium-hub
 
 ### To stop the grid
-# docker compose -f docker-compose-v3-seleniumgrid.yml down
+# docker compose -f seleniumgrid.yml down
 
 ### To restart the grid,
-# docker compose -f docker-compose-v3-seleniumgrid.yml up
+# docker compose -f seleniumgrid.yml up
 
 ### For reference
 # https://medium.com/@iamfaisalkhatri/parallel-execution-of-tests-using-selenium-grid-4-with-docker-compose-2dc243f4fe8b
 
-# docker compose -f docker-compose-v3-seleniumgrid.yml up --build
-# docker compose -f docker-compose-v3-seleniumgrid.yml restart selenium-hub
+# docker compose -f seleniumgrid.yml up --build
+# docker compose -f seleniumgrid.yml restart selenium-hub
 
