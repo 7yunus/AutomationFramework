@@ -11,9 +11,10 @@
 * Used maven as it can easily handle the entire lifecycle of a project.
 * Implemented page object model using page factory.
 * Added Log4j Api to generate log files.
-* Used Allure and cucumber reports.
+* Used Allure, Extent and Cucumber reports.
 * Used properties file to read the application url and to select browser.
 * Supports chrome and firefox browser for this test
+* Added Failed runner for retrying failed scenarios
 
 ### Packages:
 
@@ -30,13 +31,13 @@
 * Tests: `src/test/java/org/example/sedin/apiTests`
 
 #### Cucumber Runners
+
 * Cucumber runner: `src/test/java/org/example/sedin/runner`
 * Failed runner: `src/test/java/org/example/sedin/runner/FailedTestRunner.java`
 
 #### Hooks
+
 * Hooks: `src/test/java/org/example/sedin/hooks`
-
-
 
 ### Maven Project Execution using following command:
 
@@ -45,7 +46,6 @@ To execute->`mvn clean test`
 ### Jenkins file:
 
 JenkinsFile
-
 
 ### Report generation:
 

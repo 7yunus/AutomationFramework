@@ -1,32 +1,41 @@
 package org.example.sedin.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static org.example.sedin.configuration.DriverSetup.driver;
+import static org.example.sedin.configuration.DriverManager.DRIVER;
+import static org.example.sedin.configuration.DriverManager.getDriver;
+
 
 public class LoginPage {
+
     @FindBy(xpath = "//h3[@data-test='error']")
     public WebElement loginErrorMessage;
-
+    @FindBy(id = "user-name")
+    public WebElement loginUsername;
+    @FindBy(id = "password")
+    public WebElement loginPassword;
+    @FindBy(id = "login-button")
+    public WebElement loginButton;
+    @FindBy(xpath = "//span[@class='title']")
+    public WebElement productCard;
     public LoginPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DRIVER.get(), this);
     }
 
     public void login(String username, String password) {
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.id("password")).sendKeys(password);
+        getDriver().get("https://www.saucedemo.com/");
+        loginUsername.sendKeys(username);
+        loginPassword.sendKeys(password);
     }
 
     public void clickLoginBtn() {
-        driver.findElement(By.id("login-button")).click();
+        loginButton.click();
     }
 
     public boolean isProductPageOpened() {
-        WebElement product = driver.findElement(By.xpath("//span[@class='title']"));
-        return product.isDisplayed();
+        return productCard.isDisplayed();
     }
 
     public String getLoginErrorMessage() {
