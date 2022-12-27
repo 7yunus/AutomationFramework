@@ -5,9 +5,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.sedin.utilities.PropertiesReader;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
+
+import java.io.IOException;
 
 import static org.example.sedin.configuration.DriverManager.*;
 
@@ -15,6 +19,7 @@ public class Hooks {
 
     private static final Logger LOG = LogManager.getLogger(Hooks.class);
     private WebDriver driver;
+    private String browser;
 
     @Before("@BeforeAPI")
     public void before() {
@@ -24,9 +29,16 @@ public class Hooks {
     public void after(Scenario scenario) {
     }
 
+
     @Before("@BeforeUI")
     public void driverSetUp() {
-        createDriver();
+        String browser = null;
+            try {
+                browser = PropertiesReader.getPropertiesFileValue("browser");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        createDriver(browser);
     }
 
     @After("@AfterUI")

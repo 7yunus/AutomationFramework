@@ -151,6 +151,12 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin-version}</version>
                     <configuration>
+
+<!--                      Uncomment this section to run using testng file for cross browser execution if needed-->
+<!--                      <suiteXmlFiles>-->
+<!--                            <suiteXmlFile>testng_cross_browser_parallel.xml</suiteXmlFile>-->
+<!--                        </suiteXmlFiles>-->
+
                         <runOrder>alphabetical</runOrder>
                         <includes>
                             <include>CucumberRunner.java</include>

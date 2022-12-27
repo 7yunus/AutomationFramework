@@ -6,9 +6,11 @@ import org.apache.logging.log4j.Logger;
 import org.example.sedin.utilities.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -26,20 +28,18 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    public static void createDriver() {
-        String browser = null;
-        try {
-            browser = PropertiesReader.getPropertiesFileValue("browser");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//        String browser = "chrome";
+    public static void createDriver(String browser) {
+        LOG.info("Selected browser: "+browser);
+//        browser = "remote-chrome";
         switch (browser) {
             case "firefox":
                 setupFirefoxDriver();
                 break;
             case "remote-chrome":
                 setupRemoteChrome();
+                break;
+            case "remote-firefox":
+                setupRemoteFirefox();
                 break;
             case "chrome":
             default:
@@ -101,24 +101,21 @@ public class DriverManager {
         LOG.info("Chrome Driver created successfully!");
     }
 
-    private static void setupEdgeDriver() {
-        LOG.info("Setting up Edge Driver....");
-        setDriver(WebDriverManager.edgedriver()
-                .create());
-        LOG.info("Edge Driver created successfully!");
-    }
-
     private static void setupFirefoxDriver() {
         LOG.info("Setting up Firefox Driver....");
         final FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("--no-sandbox");
+//        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--window-size=1050,600");
-        options.addArguments("--headless");
-        setDriver(WebDriverManager.firefoxdriver()
-                .capabilities(options)
-                .create());
+
+//        options.addArguments("--headless");
+        setDriver( new FirefoxDriver()
+//                .capabilities(options)
+//                .create()
+                );
         LOG.info("Firefox Driver created successfully!");
     }
+
 
     private static void setupRemoteChrome() {
         try {
@@ -130,6 +127,13 @@ public class DriverManager {
         } catch (final MalformedURLException e) {
             LOG.error("Error setting remote_chrome", e);
         }
+    }
+
+    private static void setupEdgeDriver() {
+        LOG.info("Setting up Edge Driver....");
+        setDriver(WebDriverManager.edgedriver()
+                .create());
+        LOG.info("Edge Driver created successfully!");
     }
 
     private static void setupRemoteEdge() {
@@ -146,7 +150,6 @@ public class DriverManager {
 
     private static void setupRemoteFirefox() {
         try {
-
             LOG.info("Setting up Remote Firefox Driver....");
             final DesiredCapabilities caps = new DesiredCapabilities();
             caps.setBrowserName("firefox");
