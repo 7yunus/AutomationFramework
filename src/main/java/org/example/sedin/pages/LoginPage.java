@@ -10,35 +10,36 @@ import static org.example.sedin.configuration.DriverManager.getDriver;
 
 public class LoginPage {
 
-    @FindBy(xpath = "//h3[@data-test='error']")
-    public WebElement loginErrorMessage;
-    @FindBy(id = "user-name")
-    public WebElement loginUsername;
-    @FindBy(id = "password")
-    public WebElement loginPassword;
-    @FindBy(id = "login-button")
-    public WebElement loginButton;
-    @FindBy(xpath = "//span[@class='title']")
-    public WebElement productCard;
-    public LoginPage() {
-        PageFactory.initElements(DRIVER.get(), this);
-    }
+  @FindBy(xpath = "//h3[@data-test='error']")
+  public WebElement loginErrorMessage;
+  @FindBy(id = "user-name")
+  public WebElement loginUsername;
+  @FindBy(id = "password")
+  public WebElement loginPassword;
+  @FindBy(id = "login-button")
+  public WebElement loginButton;
+  @FindBy(xpath = "//span[@class='title']")
+  public WebElement productCard;
 
-    public void login(String username, String password) {
-        getDriver().get("https://www.saucedemo.com/");
-        loginUsername.sendKeys(username);
-        loginPassword.sendKeys(password);
-    }
+  public LoginPage() {
+    PageFactory.initElements(DRIVER.get(), this);
+  }
 
-    public void clickLoginBtn() {
-        loginButton.click();
-    }
+  public void login(String username, String password) {
+    getDriver().get("https://www.saucedemo.com/");
+    loginUsername.sendKeys(username);
+    loginPassword.sendKeys(password);
+  }
 
-    public boolean isProductPageOpened() {
-        return productCard.isDisplayed();
-    }
+  public void clickLoginBtn() {
+    loginButton.click();
+  }
 
-    public String getLoginErrorMessage() {
-        return loginErrorMessage.getText();
-    }
+  public boolean isProductPageOpened() {
+    return productCard.isDisplayed();
+  }
+
+  public String getLoginErrorMessage() {
+    return loginErrorMessage.getText();
+  }
 }

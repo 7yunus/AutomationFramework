@@ -42,10 +42,11 @@
 ### Maven Project Execution using following command:
 
 To execute test sequentially, comment DataProvider method in CucumberRunner: `mvn clean test`  
-To execute test in parallel, uncomment DataProvider method in CucumberRunner class: `mvn clean test`   
+To execute test in parallel, uncomment DataProvider method in CucumberRunner
+class: `mvn clean test`   
 To execute tests on cross browsers in parallel: `testng_cross_browser_parallel.xml`
 
-* Remote or local single browser setup can be controlled using config.properties  
+* Remote or local single browser setup can be controlled using config.properties
 * Remote or local cross browser setup can be controlled using testng_cross_browser_parallel.xml
 
 ### Jenkins file:

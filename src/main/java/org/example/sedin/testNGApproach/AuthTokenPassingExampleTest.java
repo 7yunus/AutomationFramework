@@ -16,28 +16,31 @@ import static org.hamcrest.Matchers.notNullValue;
 @Feature("How do you take the token/auth from one request and pass to next request?")
 public class AuthTokenPassingExampleTest {
 
-    private static final String URL = "https://reqres.in";
-    private static final Logger LOG = LogManager.getLogger(AuthTokenPassingExampleTest.class);
+  private static final String URL = "https://reqres.in";
+  private static final Logger LOG = LogManager.getLogger(AuthTokenPassingExampleTest.class);
 
-    @Test
-    public void getToken() {
-        AuthenticationPojo requestBody = new AuthenticationPojo("eve.holt@reqres.in", "pistol");
-        AuthenticationToken authenticationToken = given().contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .log().uri()
-                .post(URL + "/api/register")
-                .then()
-                .assertThat()
-                .statusCode(200)
-                .log().body()
-                .body("id", notNullValue())
-                .and()
-                .body("token", notNullValue())
-                .and()
-                .extract().as(AuthenticationToken.class);
+  @Test
+  public void getToken() {
+    AuthenticationPojo requestBody = new AuthenticationPojo("eve.holt@reqres.in", "pistol");
+    AuthenticationToken authenticationToken = given().contentType(ContentType.JSON)
+        .body(requestBody)
+        .when()
+        .log()
+        .uri()
+        .post(URL + "/api/register")
+        .then()
+        .assertThat()
+        .statusCode(200)
+        .log()
+        .body()
+        .body("id", notNullValue())
+        .and()
+        .body("token", notNullValue())
+        .and()
+        .extract()
+        .as(AuthenticationToken.class);
 
-        LOG.info(authenticationToken.getToken()); //take the token/auth from one request and pass to next request
-    }
+    LOG.info(authenticationToken.getToken()); //take the token/auth from one request and pass to next request
+  }
 
 }

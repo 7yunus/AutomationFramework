@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
 
     <groupId>org.example.sedin</groupId>
     <artifactId>sedin-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>Sedin-test</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,6 +31,34 @@
         </allure.cmd.download.url>
     </properties>
 
+    <!--    <distributionManagement>-->
+    <!--        <repository>-->
+    <!--            <id>central</id>-->
+    <!--            <name>a0fcbgajkdi20-artifactory-primary-0-releases</name>-->
+    <!--            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-release</url>-->
+    <!--        </repository>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>snapshots</id>-->
+    <!--            <name>a0fcbgajkdi20-artifactory-primary-0-snapshots</name>-->
+    <!--            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-snapshot</url>-->
+    <!--        </snapshotRepository>-->
+    <!--    </distributionManagement>-->
+
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>myproject-libs-release</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>myproject-libs-snapshot</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
     <dependencies>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -40,7 +68,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>7.5.0</version>
+            <version>7.10.1</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>junit</groupId>-->
@@ -143,6 +171,41 @@
 
     </dependencies>
 
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>myproject-libs-release</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-release</url>
+        </repository>
+        <repository>
+            <snapshots/>
+            <id>snapshots</id>
+            <name>myproject-libs-snapshot</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-snapshot</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>myproject-libs-release</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots/>
+            <id>snapshots</id>
+            <name>myproject-libs-snapshot</name>
+            <url>https://qaexp.jfrog.io/artifactory/myproject-libs-snapshot</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
     <build>
         <pluginManagement>
             <plugins>
@@ -152,10 +215,10 @@
                     <version>${maven-surefire-plugin-version}</version>
                     <configuration>
 
-<!--                      Uncomment this section to run using testng file for cross browser execution if needed-->
-<!--                      <suiteXmlFiles>-->
-<!--                            <suiteXmlFile>testng_cross_browser_parallel.xml</suiteXmlFile>-->
-<!--                        </suiteXmlFiles>-->
+                        <!--                      Uncomment this section to run using testng file for cross browser execution if needed-->
+                        <!--                      <suiteXmlFiles>-->
+                        <!--                            <suiteXmlFile>testng_cross_browser_parallel.xml</suiteXmlFile>-->
+                        <!--                        </suiteXmlFiles>-->
 
                         <runOrder>alphabetical</runOrder>
                         <includes>
@@ -214,7 +277,8 @@
                             </goals>
                             <configuration>
                                 <projectName>sedin-test</projectName>
-                                <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
+                                <outputDirectory>${project.build.directory}/cucumber-report
+                                </outputDirectory>
                                 <jsonFiles>
                                     <jsonFile>**/*.json</jsonFile>
                                 </jsonFiles>
@@ -229,4 +293,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
 </project>

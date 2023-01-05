@@ -4,22 +4,22 @@ import lombok.Data;
 
 @Data
 public class AuthenticationToken {
-    private static String id;
-    private static String token;
+  private static String id;
+  private static String token;
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getToken() {
-        return token;
-    }
+  public String getToken() {
+    return token;
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+  public void setToken(String token) {
+    this.token = token;
+  }
 }

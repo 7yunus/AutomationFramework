@@ -15,24 +15,23 @@ import static org.hamcrest.Matchers.lessThan;
 public class APIConfig {
 
 
-    @BeforeClass
-    public void setup() {
+  @BeforeClass
+  public void setup() {
 
-        RequestSpecification request = new RequestSpecBuilder().addHeader("Content-Type", "application/json")
-                .setBaseUri("https://reqres.in/")
-                .addHeader("Accept", "application/json")
-                .addFilter(new RequestLoggingFilter())
-                .addFilter(new ResponseLoggingFilter())
-//                .log(LogDetail.URI)
-                .build();
-//
-        ResponseSpecification response = new ResponseSpecBuilder()
-                .log(LogDetail.BODY)
-                .expectResponseTime(lessThan(5000L))
-                .build();
+    RequestSpecification request =
+        new RequestSpecBuilder().addHeader("Content-Type", "application/json")
+            .setBaseUri("https://reqres.in/")
+            .addHeader("Accept", "application/json")
+            .addFilter(new RequestLoggingFilter())
+            .addFilter(new ResponseLoggingFilter())
+            //                .log(LogDetail.URI)
+            .build();
+    //
+    ResponseSpecification response =
+        new ResponseSpecBuilder().log(LogDetail.BODY).expectResponseTime(lessThan(5000L)).build();
 
-        RestAssured.requestSpecification = request;
-        RestAssured.responseSpecification = response;
-    }
+    RestAssured.requestSpecification = request;
+    RestAssured.responseSpecification = response;
+  }
 
 }

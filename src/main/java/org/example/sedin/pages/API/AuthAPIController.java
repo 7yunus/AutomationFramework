@@ -10,18 +10,19 @@ import org.example.sedin.data.reqres.AuthenticationPojo;
 import static io.restassured.RestAssured.given;
 
 public class AuthAPIController extends APIConfig {
-    private static final Logger LOG = LogManager.getLogger(AuthAPIController.class);
+  private static final Logger LOG = LogManager.getLogger(AuthAPIController.class);
 
-    public Response getAuthenticationToken(String username, String password) {
-        AuthenticationPojo requestBody = new AuthenticationPojo(username, password);
+  public Response getAuthenticationToken(String username, String password) {
+    AuthenticationPojo requestBody = new AuthenticationPojo(username, password);
 
-        return given().contentType(ContentType.JSON)
-                .spec(getRequestSpecification())
-                .body(requestBody)
-                .when()
-                .post("/api/register")
-                .then()
-                .spec(getResponseSpecification())
-                .extract().response();
-    }
+    return given().contentType(ContentType.JSON)
+        .spec(getRequestSpecification())
+        .body(requestBody)
+        .when()
+        .post("/api/register")
+        .then()
+        .spec(getResponseSpecification())
+        .extract()
+        .response();
+  }
 }

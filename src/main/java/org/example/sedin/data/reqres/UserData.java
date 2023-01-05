@@ -9,6 +9,6 @@ import lombok.Setter;
 @Builder
 public class UserData {
 
-    public String name;
-    public String job;
+  public String name;
+  public String job;
 }

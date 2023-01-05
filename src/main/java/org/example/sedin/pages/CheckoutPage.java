@@ -12,59 +12,60 @@ import static org.example.sedin.configuration.DriverManager.DRIVER;
 
 
 public class CheckoutPage {
-    private static final Logger LOG = LogManager.getLogger(CheckoutPage.class);
-    @FindBy(xpath = "//button[@id='checkout']")
-    WebElement checkoutButton;
-    @FindBy(xpath = "//input[@id='first-name']")
-    WebElement firstNameField;
-    @FindBy(xpath = "//input[@id='last-name']")
-    WebElement lastNameField;
-    @FindBy(xpath = "//input[@id='postal-code']")
-    WebElement zipField;
-    @FindBy(xpath = "//input[@id='continue']")
-    WebElement continueButton;
-    @FindBy(xpath = "//div[@class='inventory_item_desc']")
-    WebElement itemDesc;
-    @FindBy(xpath = "//div[@class='inventory_item_price']")
-    WebElement itemPrice;
-    @FindBy(xpath = "//button[@id='finish']")
-    WebElement finishButton;
-    @FindBy(xpath = "//h2[@class='complete-header']")
-    WebElement thankYouMessageText;
-    public CheckoutPage() {
-        PageFactory.initElements(DRIVER.get(), this);
-    }
+  private static final Logger LOG = LogManager.getLogger(CheckoutPage.class);
+  @FindBy(xpath = "//button[@id='checkout']")
+  WebElement checkoutButton;
+  @FindBy(xpath = "//input[@id='first-name']")
+  WebElement firstNameField;
+  @FindBy(xpath = "//input[@id='last-name']")
+  WebElement lastNameField;
+  @FindBy(xpath = "//input[@id='postal-code']")
+  WebElement zipField;
+  @FindBy(xpath = "//input[@id='continue']")
+  WebElement continueButton;
+  @FindBy(xpath = "//div[@class='inventory_item_desc']")
+  WebElement itemDesc;
+  @FindBy(xpath = "//div[@class='inventory_item_price']")
+  WebElement itemPrice;
+  @FindBy(xpath = "//button[@id='finish']")
+  WebElement finishButton;
+  @FindBy(xpath = "//h2[@class='complete-header']")
+  WebElement thankYouMessageText;
 
-    public void clickOnCheckoutButton() {
-        LOG.info("Clicking on checkout button");
-        checkoutButton.click();
-    }
+  public CheckoutPage() {
+    PageFactory.initElements(DRIVER.get(), this);
+  }
 
-    public void fillCheckoutForm(String firstName, String lastName, String zipPostalCode) {
-        firstNameField.sendKeys(firstName);
-        lastNameField.sendKeys(lastName);
-        zipField.sendKeys(zipPostalCode);
-    }
+  public void clickOnCheckoutButton() {
+    LOG.info("Clicking on checkout button");
+    checkoutButton.click();
+  }
 
-    public void clickOnContinueButton() {
-        LOG.info("Clicking on continue button after filling form");
-        continueButton.click();
-    }
+  public void fillCheckoutForm(String firstName, String lastName, String zipPostalCode) {
+    firstNameField.sendKeys(firstName);
+    lastNameField.sendKeys(lastName);
+    zipField.sendKeys(zipPostalCode);
+  }
 
-    public ArrayList<Object> getCheckoutProductDetails() {
-        ArrayList<Object> productDetails = new ArrayList<>();
-        productDetails.add(Double.parseDouble(itemPrice.getText().replace("$", "")));
-        productDetails.add(itemDesc.getText().trim());
-        LOG.info("productDetails: " + productDetails);
-        return productDetails;
-    }
+  public void clickOnContinueButton() {
+    LOG.info("Clicking on continue button after filling form");
+    continueButton.click();
+  }
 
-    public void clickOnFinishButton() {
-        LOG.info("Clicking on checkout button");
-        finishButton.click();
-    }
+  public ArrayList<Object> getCheckoutProductDetails() {
+    ArrayList<Object> productDetails = new ArrayList<>();
+    productDetails.add(Double.parseDouble(itemPrice.getText().replace("$", "")));
+    productDetails.add(itemDesc.getText().trim());
+    LOG.info("productDetails: " + productDetails);
+    return productDetails;
+  }
 
-    public String getThankYouMessage() {
-        return thankYouMessageText.getText();
-    }
+  public void clickOnFinishButton() {
+    LOG.info("Clicking on checkout button");
+    finishButton.click();
+  }
+
+  public String getThankYouMessage() {
+    return thankYouMessageText.getText();
+  }
 }

@@ -3,11 +3,11 @@
 <suite name="Regression Suite" parallel="tests" thread-count="4" data-provider-thread-count="4">
     <test name="UITestChrome">
 
-<!--
-            If you want to run tests on cross browsers in parallel on remote, start selenium grid locally w/o docker
-            first and then run tests using this xml file or change the parameter value to chrome and firefox to run on
-            local machine
--->
+        <!--
+                    If you want to run tests on cross browsers in parallel on remote, start selenium grid locally w/o docker
+                    first and then run tests using this xml file or change the parameter value to chrome and firefox to run on
+                    local machine
+        -->
         <parameter name="browser" value="remote-chrome"/>
         <classes>
             <class name="org.example.sedin.runner.cross_browser.CrossBrowserParallelRunner"/>
